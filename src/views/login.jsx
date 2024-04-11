@@ -1,9 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 //importamos los css
-import Login from '../css/login.module.css'
+import login from '../css/login.module.css'
 
-const login = () => {
+// importamos los hooks de navegacion
+import { useGoPerfilL } from '../hooks/NavigationFunctions'
+
+const Login = () => {
+
+    const goToPerfil = useGoPerfilL();
+
     return (
         <div>
             <div>
@@ -15,12 +22,14 @@ const login = () => {
                 <input type="text" />
                 <input type="text" />
                 <br />
-                <button>Iniciar Sesión</button>
+                <button onClick={goToPerfil}>Iniciar Sesión</button>
                 <br />
-                <p>¿No tienes cuenta? Hazte una ahora</p>
+                <Link to='/crearCuenta'>
+                    <p>¿No tienes cuenta? Hazte una ahora</p>
+                </Link>
             </form>
         </div>
     )
 }
 
-export default login
+export default Login

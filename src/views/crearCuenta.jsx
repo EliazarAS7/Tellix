@@ -1,9 +1,15 @@
 import React from 'react'
 
 //importamos los css
-import CrearCuenta from '../css/crearCuenta.module.css'
+import crearCuenta from '../css/crearCuenta.module.css'
 
-const crearCuenta = () => {
+// importamos los hooks de navegacion
+import { useGoPerfilC } from '../hooks/NavigationFunctions'
+
+const CrearCuenta = () => {
+
+    const goToPerfil = useGoPerfilC();
+
     return (
         <div>
             <div>
@@ -17,10 +23,10 @@ const crearCuenta = () => {
                 <input type="text" />
                 <input type="text" />
                 <br />
-                <button>Crear Cuenta</button>
+                <button onClick={goToPerfil}>Crear Cuenta</button>
             </form>
         </div>
     )
 }
 
-export default crearCuenta
+export default CrearCuenta;
