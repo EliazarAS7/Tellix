@@ -13,21 +13,24 @@ const Login = () => {
 
     return (
         <div>
-            <div>
-                <h1>tellix</h1>
+            <div className={login.logo}>
+                <h1>Tellix</h1>
             </div>
-
-            <form action="">
-                <h1>Iniciar Sesión</h1>
-                <input type="text" />
-                <input type="text" />
-                <br />
-                <button onClick={goToPerfil}>Iniciar Sesión</button>
-                <br />
-                <Link to='/crearCuenta'>
-                    <p>¿No tienes cuenta? Hazte una ahora</p>
-                </Link>
-            </form>
+            <div className={login.formulario}>
+                <form action="">
+                    <h1 className={login.iniciarSesion}>Iniciar Sesión</h1>
+                    <input className={login.input} type="text" value='Email o Numero de Teléfono'/>
+                    <br />
+                    <input className={login.input} type="text" value='Constraseña'/>
+                    <br />
+                    <br />
+                    <button className={login.button} onClick={goToPerfil}>Iniciar Sesión</button>
+                    <br />
+                    <Link to='/crearCuenta'>
+                        <p>¿No tienes cuenta? Hazte una ahora</p>
+                    </Link>
+                </form>
+            </div>
         </div>
     )
 }

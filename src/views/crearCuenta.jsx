@@ -12,19 +12,24 @@ const CrearCuenta = () => {
 
     return (
         <div>
-            <div>
+            <div className={crearCuenta.logo}>
                 <h1>Tellix</h1>
             </div>
 
-            <form action="">
-                <h1>Crear Cuenta</h1>
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-                <br />
-                <button onClick={goToPerfil}>Crear Cuenta</button>
-            </form>
+            <div className={crearCuenta.formulario}>
+                <form action="">
+                    <h1 className={crearCuenta.titulo}>Crear Cuenta</h1>
+                    <input className={crearCuenta.input} type="text" value='Email'/>
+                    <br />
+                    <input className={crearCuenta.input} type="text" value='Numero de teléfono'/>
+                    <br />
+                    <input className={crearCuenta.input} type="text" value='Constraseña'/>
+                    <br />
+                    <input className={crearCuenta.input} type="text" value='Confirmar constraseña'/>
+                    <br />
+                    <button className={crearCuenta.button} onClick={goToPerfil}>Crear Cuenta</button>
+                </form>
+            </div>
         </div>
     )
 }

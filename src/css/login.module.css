@@ -1,0 +1,32 @@
+.logo{
+    color: red;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    max-width: 50rem;
+    margin: 0 auto;
+    height: 30rem;
+}
+
+.iniciarSesion{
+    color: white;
+}
+
+.input{
+    margin-top: 5px;
+    height: 2rem;
+    width: 14rem;
+}
+
+.button{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    height: 2rem;
+    width: 14.5rem;
+}

@@ -1,0 +1,35 @@
+.logo{
+    color: red;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    max-width: 50rem;
+    margin: 0 auto;
+    height: 30rem;
+}
+
+.titulo{
+    color: white;
+}
+
+.input{
+    margin-top: 15px;
+    height: 2rem;
+    width: 14rem;
+}
+
+.button{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    height: 2rem;
+    width: 10.5rem;
+    margin-top: 15px;
+    margin-left: 33px;
+}
+
