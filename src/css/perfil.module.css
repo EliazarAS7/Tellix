@@ -1,0 +1,33 @@
+.principal{
+    margin-top: 10rem;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.perfiles{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.perfiles button{
+    width: 120px;
+    height: 120px;
+    margin-left: 24px;
+}
+
+.botonFinal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 6rem;
+}
+
