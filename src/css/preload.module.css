@@ -1,13 +1,17 @@
 .barraNav{
     display: flex;
     flex-direction: row;
-    background-color: rgba(2, 2, 2, 0.199); /* Color de fondo con opacidad */
-    backdrop-filter: blur(10px); /* Aplica desenfoque al fondo */
+    background-color: rgba(0,0,0,0.8); /* Color de fondo con opacidad */
+    backdrop-filter: blur(4px); /* Aplica desenfoque al fondo */
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
 }
 
 .botones{
-    margin-top: 2rem;
-    margin-left: 88rem;
+    margin-top: 2%;
+    margin-left: 35%;
 }
 
 .botones button{
@@ -20,6 +24,17 @@
 .logo{
     color: red;
     margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1%;
+}
+
+.logo a{
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 40px;
+    color: #fff;
 }
 
 .botonLogin{
@@ -31,4 +46,8 @@
     margin-left: 2rem;
     background-color: red;
     color: white;
+}
+
+.todosContenido{
+    margin-top: 7%;
 }
