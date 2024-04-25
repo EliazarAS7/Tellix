@@ -6,6 +6,17 @@ import styles from '../css/preload.module.css'
 // importamos las hook de navegacion
 import { useGoLogin, useGoCrearCuenta } from '../hooks/NavigationFunctions';
 
+//imagenes de las peliculas
+
+import avatar from '../img/fotoPeliculas/Avatar.jpg'
+import elNino from '../img/fotoPeliculas/elNiño.jpg'
+import aladin from '../img/fotoPeliculas/Aladin.jpg'
+import laMonja from '../img/fotoPeliculas/laMonja.jpg'
+import frozen from '../img/fotoPeliculas/frozen.jpg'
+import venom from '../img/fotoPeliculas/venom.jpg'
+import mulan from '../img/fotoPeliculas/mulan.jpg'
+import fotoOuter from '../img/fotoPeliculas/outerBanks-removebg-preview.png';
+
 const Preload = () => {
 
     const goToLogin = useGoLogin();
@@ -27,13 +38,38 @@ const Preload = () => {
                 </div>
             </div>
             <div className={styles.todosContenido}>
-                <div className='contenido'>
-                    <h1>Grandes Peliculas</h1>
-                    <p>Descubre los grandes éxitos, desde lo último de DC y Warner Bros. hasta tus comedias, dramas y clásicos favoritos.</p>
+                <div className={styles.contenidoPeliculas}>
+                    <div className={styles.izquierda}>
+                        <h1>Grandes Peliculas</h1>
+                        <p>Descubre los grandes éxitos, desde lo último de DC y <br />Warner Bros. hasta tus comedias, dramas y clásicos <br /> favoritos.</p>
+                    </div>
+                    <div className={styles.derecha}>
+                        <img src={avatar} alt="" />
+                        <img src={aladin} alt="" />
+                        <img src={elNino} alt="" />
+                        <img src={laMonja} alt="" />
+                        <img src={venom} alt="" />
+                        <img src={mulan} alt="" />
+                    </div>
                 </div>
-                <div className='contenido'>
-                    <h1>Las series de las que todos hablan</h1>
-                    <p>Encuentra tu nueva obsesión en nuestro creciente catálogo lleno de series adictivas, reality shows y clásicos icónicos de la televisión.</p>
+                <div className={styles.contenidoSeries}>
+                    <div className={styles.arriba}>
+                        <div className= {styles.letras}>
+                            <h1>Las series de las que todos hablan</h1>
+                            <p>Encuentra tu nueva obsesión en nuestro creciente <br /> catálogo lleno de series adictivas, reality shows y clásicos <br /> icónicos de la televisión.</p>
+                        </div>
+                        <div className={styles.imagen}>
+                            <img src={fotoOuter} alt="" />
+                        </div>
+                    </div>
+                    <div className={styles.abajo}>
+                        <img src={avatar} alt="" />
+                        <img src={aladin} alt="" />
+                        <img src={elNino} alt="" />
+                        <img src={laMonja} alt="" />
+                        <img src={venom} alt="" />
+                        <img src={mulan} alt="" />
+                    </div>
                 </div>
                 <div className='contenido'>
                     <h1>Lo que todo el mundo se pregunta sobre Tellix</h1>
