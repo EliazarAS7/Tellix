@@ -71,13 +71,14 @@ const Preload = () => {
                         <img src={mulan} alt="" />
                     </div>
                 </div>
-                <div className='contenido'>
+                <div className={styles.contenidoPreguntas}>
                     <h1>Lo que todo el mundo se pregunta sobre Tellix</h1>
                     /* Aqui van todas las preguntas con sus bloques */
                 </div>
-                <div className='contenido'>
+                <div className={styles.contenidoPrecio}>
                     <h1>Ve todo lo que quieras. Cancela en cualquier momento.</h1>
                     <p>3,33€/Mes</p>
+                    <button>Suscibete Ya</button>
                 </div>
             </div>
         </div>
