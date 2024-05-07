@@ -16,9 +16,9 @@ const Login = () => {
             <div className={login.logo}>
                 <h1>Tellix</h1>
             </div>
+            <h1 className={login.iniciarSesion}>Iniciar Sesión</h1>
             <div className={login.formulario}>
                 <form action="">
-                    <h1 className={login.iniciarSesion}>Iniciar Sesión</h1>
                     <input className={login.input} type="text" value='Email o Numero de Teléfono'/>
                     <br />
                     <input className={login.input} type="text" value='Constraseña'/>

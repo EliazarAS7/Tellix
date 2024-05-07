@@ -15,10 +15,9 @@ const CrearCuenta = () => {
             <div className={crearCuenta.logo}>
                 <h1>Tellix</h1>
             </div>
-
+            <h1 className={crearCuenta.titulo}>Crear Cuenta</h1>
             <div className={crearCuenta.formulario}>
                 <form action="">
-                    <h1 className={crearCuenta.titulo}>Crear Cuenta</h1>
                     <input className={crearCuenta.input} type="text" value='Email'/>
                     <br />
                     <input className={crearCuenta.input} type="text" value='Numero de teléfono'/>

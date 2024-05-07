@@ -1,3 +1,9 @@
+body{
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
+}
+
 .barraNav{
     display: flex;
     flex-direction: row;
@@ -61,7 +67,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
+    color: #fff;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
+
 
 .derecha {
     display: grid;
@@ -85,8 +98,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 2%;
+    padding-bottom: 2%;
     background-color: aquamarine;
+    color: #fff;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://hbomax-images.warnermediacdn.com/2023-05/frinds_background.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=2000);
 }
 
 .arriba{
@@ -118,20 +135,85 @@
 
 /*  Preguntas   */
 
-.contenidoPreguntas{
+.contenidoPreguntas {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    color: rgb(121, 110, 221);
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
+}
+
+.h1contenidoPreguntas{
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+
+    /* Oculta el marcador de detalles predeterminado */
+details::-webkit-details-marker {
+    display: none;
+}
+
+    /* Asegura que el contenido dentro de <summary> se muestre en línea */
+details summary > * {
+    display: inline;
+}
+
+    /* Estilos para los detalles */
+details {
+    margin-bottom: 20px;
+    overflow: hidden; /* Controla el desbordamiento */
+}
+
+details[open] {
+    overflow: visible; /* Permite que el contenido se expanda */
+}
+
+    /* Estilos para el resumen */
+details summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center; /* Centra el texto del resumen */
+}
+
+    /* Alinea el texto del resumen al centro y ajusta el tamaño de fuente */
+summary h1 {
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    /* border-bottom: 2px solid black; */
+}
+
+    /* Asegura que el contenido dentro de <details> se centre horizontalmente */
+details p {
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    font-size: 1.5rem;
+    max-width: 60rem;
 }
 
 /*  Precio  */
 
 .contenidoPrecio{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://hbomax-images.warnermediacdn.com/2021-10/HBOMax%20price%20background%20V2.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
 }
 
 .contenidoPrecio button{
@@ -139,7 +221,7 @@
     border-radius: 2em;
     height: 2rem;
     width: 10%;
-    background-color: rgb(111, 0, 255);
+    background-color: rgb(181, 53, 246);
     color: white;
 }
 
@@ -147,3 +229,4 @@
     background-color: white;
     color: black;
 }
+
