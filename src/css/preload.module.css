@@ -2,6 +2,7 @@ body{
     background-size: cover;
     background-position: center center;
     background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
+    margin: 0;
 }
 
 .barraNav{

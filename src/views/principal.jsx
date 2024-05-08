@@ -15,7 +15,7 @@ import principal from '../css/principal.module.css'
 
 const Principal = () => {
     return (
-        <div>
+        <div className={principal.general}>
             <div className={principal.barraNav}>
                 <h1>Tellix</h1>
                 <Link>Peliculas</Link>
@@ -40,6 +40,32 @@ const Principal = () => {
 
                 <div className={principal.peliculas}>
                     <h2>Top 10 Mejores Series</h2>
+                    <div className={principal.soloTellix}>
+                        <img src={laMonja} alt="" />
+                        <img src={elNino} alt="" />
+                        <img src={aladin} alt="" />
+                        <img src={avatar} alt="" />
+                        <img src={frozen} alt="" />
+                        <img src={venom} alt="" />
+                        <img src={mulan} alt="" />
+                    </div>
+                </div>
+
+                <div className={principal.peliculas}>
+                    <h2>Top 10 Mejores Peliculas</h2>
+                    <div className={principal.soloTellix}>
+                        <img src={laMonja} alt="" />
+                        <img src={elNino} alt="" />
+                        <img src={aladin} alt="" />
+                        <img src={avatar} alt="" />
+                        <img src={frozen} alt="" />
+                        <img src={venom} alt="" />
+                        <img src={mulan} alt="" />
+                    </div>
+                </div>
+
+                <div className={principal.peliculas}>
+                    <h2>Novedades</h2>
                     <div className={principal.soloTellix}>
                         <img src={laMonja} alt="" />
                         <img src={elNino} alt="" />

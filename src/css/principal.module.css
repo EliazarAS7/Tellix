@@ -1,3 +1,7 @@
+.general{
+
+}
+
 .barraNav{
     display: flex;
     flex-direction: row;
@@ -20,10 +24,12 @@
 .barraNav h1{
     color: red;
     margin-left: 3%;
+    
 }
 
 .todasPeliculas{
     margin-top: 5%;
+    color: #fff;
 }
 
 .soloTellix{
