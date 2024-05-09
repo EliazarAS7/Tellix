@@ -1,5 +1,9 @@
 .principal{
-    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 }
 
 .titulo{
@@ -8,6 +12,7 @@
     justify-content: center;
     margin: 0 auto;
     margin-bottom: 2rem;
+    color: #fff;
 }
 
 .perfiles{
@@ -21,6 +26,7 @@
     width: 120px;
     height: 120px;
     margin-left: 24px;
+    border-radius: 50%;
 }
 
 .botonFinal{
@@ -28,6 +34,6 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 6rem;
+    margin-top: 4%;
 }
 

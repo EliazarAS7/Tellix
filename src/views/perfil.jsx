@@ -20,7 +20,7 @@ const Perfil = () => {
         <button onClick={goToPrincipal}>Luis Alberto</button>
       </div>
       <button className={perfil.botonFinal}>
-        <p>Administrar Perfiles</p>
+        <p>Administrar Cuenta</p>
       </button>
     </div>
   )
