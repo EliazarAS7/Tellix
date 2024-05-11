@@ -79,6 +79,10 @@ body{
     padding-bottom: 2%;
 }
 
+.izquierda h1{
+    text-align: left;
+    font-size: 2.5rem;
+}
 
 .derecha {
     display: grid;
@@ -116,10 +120,16 @@ body{
 }
 
 .letras{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-top: 8%;
+}
+
+.letras h1{
+    text-align: left;
+    font-size: 2.5rem;
+}
+
+.letras p{
+    text-align: left;
 }
 
 .abajo{
@@ -158,52 +168,80 @@ body{
 }
 
 
-    /* Oculta el marcador de detalles predeterminado */
-details::-webkit-details-marker {
-    display: none;
-}
-
-    /* Asegura que el contenido dentro de <summary> se muestre en línea */
-details summary > * {
-    display: inline;
-}
-
-    /* Estilos para los detalles */
 details {
-    margin-bottom: 20px;
-    overflow: hidden; /* Controla el desbordamiento */
-}
-
-details[open] {
-    overflow: visible; /* Permite que el contenido se expanda */
-}
-
-    /* Estilos para el resumen */
-details summary {
+    width: 75%;
+    min-height: 5px;
+    max-width: 700px;
+    padding: 45px 70px 45px 45px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s;
+  }
+  
+  details + details {
+    margin: 20px;
+  }
+  
+  details[open] {
+    min-height: 50px;
+    background-color: #f6f7f8;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  details p {
+    color: #96999d;
+    font-weight: 300;
+  }
+  
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
     cursor: pointer;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center; /* Centra el texto del resumen */
-}
+  }
+  
+  summary:focus {
+    outline: none;
+  }
+  
+  summary:focus::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .control-icon {
+    fill: green;
+    transition: 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .control-icon-close {
+    display: none;
+  }
+  
+  details[open] .control-icon-close {
+    display: initial;
+    transition: 0.3s ease;
+  }
+  
+  details[open] .control-icon-expand {
+    display: none;
+  }
 
-    /* Alinea el texto del resumen al centro y ajusta el tamaño de fuente */
-summary h1 {
-    text-align: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    /* border-bottom: 2px solid black; */
-}
-
-    /* Asegura que el contenido dentro de <details> se centre horizontalmente */
-details p {
-    text-align: center;
-    margin: 0;
-    color: #fff;
-    font-size: 1.5rem;
-    max-width: 60rem;
-}
 
 /*  Precio  */
 

@@ -74,49 +74,49 @@ const Preload = () => {
                 <div className={styles.contenidoPreguntas}>
                     <h1 className={styles.h1contenidoPreguntas}>Lo que todo el mundo se pregunta sobre Tellix</h1>
 
-                    <details>
+                    <details open>
                         <summary>
                             <h1>¿Qué es Tellix?</h1>
                         </summary>
                         <p>Tellix es una experiencia de streaming espectacular que te trae las mejores historias de Warner Bros., HBO, Max, DC, Cartoon Network y mucho más, juntos por primera vez.</p>
                     </details>
 
-                    <details>
+                    <details open>
                         <summary>
                             <h1>¿Tellix es adecuado para toda la familia?</h1>
                         </summary>
                         <p>Con los perfiles de los niños y los controles parentales personalizados, las familias pueden reír y aprender con personajes como Bugs Bunny, Peppa Pig, Harry Potter y más.</p>
                     </details>
 
-                    <details>
+                    <details open>
                         <summary>
                             <h1>¿Cuánto cuesta Tellix?</h1>
                         </summary>
                         <p>Tellix tiene un precio mensual de 9,99 €. Puedes ahorrar un 41 % si pagas el precio anual de 69,99 € por adelantado.</p>
                     </details>
 
-                    <details>
+                    <details open>
                         <summary>
                             <h1>¿En qué dispositivos puedo reproducir Tellix?</h1>
                         </summary>
                         <p>Puedes reproducir Tellix en iPhone y iPad, móviles y tablets Android, Apple TV, Android TV, Chromecast, Samsung TV, LG, Chrome OS, MacOS, Windows PC, PS5, PS4, Xbox Series X|S, y Xbox One. Y más dispositivos en el futuro.</p>
                     </details>
 
-                    <details>
+                    <details open>
                         <summary>
                             <h1>¿En qué dispositivos puedo reproducir Tellix?</h1>
                         </summary>
                         <p>Puedes reproducir Tellix en iPhone y iPad, móviles y tablets Android, Apple TV, Android TV, Chromecast, Samsung TV, LG, Chrome OS, MacOS, Windows PC, PS5, PS4, Xbox Series X|S, y Xbox One. Y más dispositivos en el futuro.</p>
                     </details>
 
-                    <details>
+                    <details open>
                         <summary>
                             <h1>¿Cómo inicio sesión en Tellix?</h1>
                         </summary>
                         <p>Si te has suscrito a través de Tellix.com, puedes iniciar sesión con tu email y contraseña.</p>
                     </details>
 
-                    <details>
+                    <details open>
                         <summary>
                             <h1>¿Cuáles son los títulos más populares de Tellix en España?</h1>
                         </summary>
