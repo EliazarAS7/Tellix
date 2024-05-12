@@ -27,10 +27,6 @@ const Preload = () => {
             <div className={styles.barraNav}>
                 <div className={styles.logo}>
                     <h1>Tellix</h1>
-                    <Link>Peliculas</Link>
-                    <Link>Series</Link>
-                    <Link>Preguntas Frecuentes</Link>
-                    <Link>Precios</Link>
                 </div>
                 <div className={styles.botones}>
                     <button className={styles.botonLogin} onClick={goToLogin}>Iniciar Sesión</button>
@@ -54,7 +50,7 @@ const Preload = () => {
                 </div>
                 <div className={styles.contenidoSeries}>
                     <div className={styles.arriba}>
-                        <div className= {styles.letras}>
+                        <div className={styles.letras}>
                             <h1>Las series de las que todos hablan</h1>
                             <p>Encuentra tu nueva obsesión en nuestro creciente <br /> catálogo lleno de series adictivas, reality shows y clásicos <br /> icónicos de la televisión.</p>
                         </div>
@@ -125,7 +121,7 @@ const Preload = () => {
                 </div>
                 <div className={styles.contenidoPrecio}>
                     <h1>Ve todo lo que quieras. Cancela en cualquier momento.</h1>
-                    <p>3,33€/Mes</p>
+                    <p><span className={styles.span}>3,33€</span>/Mes</p>
                     <button>Suscibete Ya</button>
                 </div>
             </div>

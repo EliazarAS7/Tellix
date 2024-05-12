@@ -1,4 +1,4 @@
-body{
+body {
     background-size: cover;
     background-position: center center;
     background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
@@ -6,32 +6,36 @@ body{
     background-repeat: no-repeat;
     height: 90vh;
     background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.barraNav{
+.barraNav {
     display: flex;
     flex-direction: row;
-    background-color: rgba(0,0,0,0.8); /* Color de fondo con opacidad */
-    backdrop-filter: blur(4px); /* Aplica desenfoque al fondo */
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Color de fondo con opacidad */
+    backdrop-filter: blur(4px);
+    /* Aplica desenfoque al fondo */
     position: fixed;
     right: 0;
     left: 0;
     top: 0;
 }
 
-.botones{
+.botones {
     margin-top: 2%;
-    margin-left: 35%;
+    margin-right: 2%;
 }
 
-.botones button{
+.botones button {
     border-radius: 2em;
     width: 9rem;
     height: 2rem;
     border: none;
 }
 
-.logo{
+.logo {
     color: red;
     margin-left: 15px;
     display: flex;
@@ -40,25 +44,25 @@ body{
     margin: 1%;
 }
 
-.logo a{
+.logo a {
     text-decoration: none;
     padding: 10px;
     margin: 0 40px;
     color: #fff;
 }
 
-.botonLogin{
+.botonLogin {
     background-color: white;
     color: red;
 }
 
-.botonCrearCuenta{
+.botonCrearCuenta {
     margin-left: 2rem;
     background-color: red;
     color: white;
 }
 
-.todosContenido{
+.todosContenido {
     margin-top: 6%;
 }
 
@@ -66,7 +70,7 @@ body{
 
 /*  Peliculas   */
 
-.contenidoPeliculas{
+.contenidoPeliculas {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -79,29 +83,34 @@ body{
     padding-bottom: 2%;
 }
 
-.izquierda h1{
+.izquierda h1 {
     text-align: left;
     font-size: 2.5rem;
 }
 
 .derecha {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual tamaño */
-    grid-template-rows: repeat(2, auto); /* Crea 2 filas, la segunda se ajustará automáticamente */
-    grid-gap: 10px; /* Ajusta este valor para controlar el espacio entre las imágenes */
+    grid-template-columns: repeat(3, 1fr);
+    /* Crea 3 columnas de igual tamaño */
+    grid-template-rows: repeat(2, auto);
+    /* Crea 2 filas, la segunda se ajustará automáticamente */
+    grid-gap: 10px;
+    /* Ajusta este valor para controlar el espacio entre las imágenes */
     margin-left: 5%;
 }
 
 .derecha img {
     max-width: 150px;
     max-height: 200px;
-    width: 100%; /* Asegura que las imágenes se ajusten al tamaño de la celda */
-    height: auto; /* Mantiene la relación de aspecto de las imágenes */
+    width: 100%;
+    /* Asegura que las imágenes se ajusten al tamaño de la celda */
+    height: auto;
+    /* Mantiene la relación de aspecto de las imágenes */
 }
 
 /*  Series  */
 
-.contenidoSeries{
+.contenidoSeries {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,37 +123,42 @@ body{
     background-image: url(https://hbomax-images.warnermediacdn.com/2023-05/frinds_background.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=2000);
 }
 
-.arriba{
+.arriba {
     display: flex;
     flex-direction: row;
 }
 
-.letras{
+.letras {
     margin-top: 8%;
 }
 
-.letras h1{
+.letras h1 {
     text-align: left;
     font-size: 2.5rem;
 }
 
-.letras p{
+.letras p {
     text-align: left;
 }
 
-.abajo{
+.abajo {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual tamaño */
-    grid-template-rows: repeat(2, auto); /* Crea 2 filas, la segunda se ajustará automáticamente */
-    grid-gap: 10px; /* Ajusta este valor para controlar el espacio entre las imágenes */
+    grid-template-columns: repeat(3, 1fr);
+    /* Crea 3 columnas de igual tamaño */
+    grid-template-rows: repeat(2, auto);
+    /* Crea 2 filas, la segunda se ajustará automáticamente */
+    grid-gap: 10px;
+    /* Ajusta este valor para controlar el espacio entre las imágenes */
     margin-top: 2%;
 }
 
-.abajo img{
+.abajo img {
     max-width: 150px;
     max-height: 200px;
-    width: 100%; /* Asegura que las imágenes se ajusten al tamaño de la celda */
-    height: auto; /* Mantiene la relación de aspecto de las imágenes */
+    width: 100%;
+    /* Asegura que las imágenes se ajusten al tamaño de la celda */
+    height: auto;
+    /* Mantiene la relación de aspecto de las imágenes */
 }
 
 /*  Preguntas   */
@@ -162,7 +176,7 @@ body{
     background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
 }
 
-.h1contenidoPreguntas{
+.h1contenidoPreguntas {
     color: #fff;
     font-size: 2.5rem;
 }
@@ -180,36 +194,36 @@ details {
     border-radius: 15px;
     box-sizing: border-box;
     transition: all 0.3s;
-  }
-  
-  details + details {
+}
+
+details+details {
     margin: 20px;
-  }
-  
-  details[open] {
+}
+
+details[open] {
     min-height: 50px;
     background-color: #f6f7f8;
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  details p {
+}
+
+details p {
     color: #96999d;
     font-weight: 300;
-  }
-  
-  summary {
+}
+
+summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
     cursor: pointer;
-  }
-  
-  summary:focus {
+}
+
+summary:focus {
     outline: none;
-  }
-  
-  summary:focus::after {
+}
+
+summary:focus::after {
     content: "";
     height: 100%;
     width: 100%;
@@ -217,35 +231,35 @@ details {
     position: absolute;
     top: 0;
     left: 0;
-  }
-  
-  summary::-webkit-details-marker {
+}
+
+summary::-webkit-details-marker {
     display: none;
-  }
-  
-  .control-icon {
+}
+
+.control-icon {
     fill: green;
     transition: 0.3s ease;
     pointer-events: none;
-  }
-  
-  .control-icon-close {
+}
+
+.control-icon-close {
     display: none;
-  }
-  
-  details[open] .control-icon-close {
+}
+
+details[open] .control-icon-close {
     display: initial;
     transition: 0.3s ease;
-  }
-  
-  details[open] .control-icon-expand {
+}
+
+details[open] .control-icon-expand {
     display: none;
-  }
+}
 
 
 /*  Precio  */
 
-.contenidoPrecio{
+.contenidoPrecio {
     padding-top: 2%;
     padding-bottom: 2%;
     color: #fff;
@@ -258,7 +272,7 @@ details {
     background-image: url(https://hbomax-images.warnermediacdn.com/2021-10/HBOMax%20price%20background%20V2.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
 }
 
-.contenidoPrecio button{
+.contenidoPrecio button {
     border: none;
     border-radius: 2em;
     height: 2rem;
@@ -267,8 +281,11 @@ details {
     color: white;
 }
 
-.contenidoPrecio button:hover{
+.contenidoPrecio button:hover {
     background-color: white;
     color: black;
 }
 
+.span {
+    font-size: 2.2rem;
+}

@@ -1,5 +1,10 @@
 import { useNavigate } from 'react-router';
 
+export function useGoPreload(){
+    const navigate = useNavigate();
+    return () => navigate('/');
+}
+
 export function useGoLogin(){
     const navigate = useNavigate();
     return () => navigate('/login');

@@ -27,9 +27,9 @@ const Perfil = () => {
         <Link to='/login/perfil/principal'><img src={imagen4} alt="" /></Link>
         <Link to='/login/perfil/principal'><img src={imagen5} alt="" /></Link>
       </div>
-      <button className={perfil.botonFinal}>
+      {/* <button className={perfil.botonFinal}>
         <p>Administrar Cuenta</p>
-      </button>
+      </button> */}
     </div>
   )
 }
