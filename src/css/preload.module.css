@@ -184,7 +184,7 @@ body {
 
 details {
     width: 75%;
-    min-height: 5px;
+    min-height: 5px; /* Ajusta este valor según sea necesario */
     max-width: 700px;
     padding: 45px 70px 45px 45px;
     margin: 0 auto;
@@ -201,9 +201,14 @@ details+details {
 }
 
 details[open] {
-    min-height: 50px;
+    min-height: 50px; /* Ajusta este valor según sea necesario */
     background-color: #f6f7f8;
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Ajusta este valor según sea necesario para compensar el margen reducido */
+}
+
+details:not([open]) {
+    margin-bottom: -3%; /* Ajusta este valor según sea necesario */
 }
 
 details p {
