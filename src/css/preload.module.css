@@ -294,3 +294,24 @@ details[open] .control-icon-expand {
 .span {
     font-size: 2.2rem;
 }
+
+@media (max-width: 932px ){
+    .todosContenido{
+        margin-top: 14%;
+        
+    }
+
+    .barraNav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: rgba(0, 0, 0, 0.8);
+        /* Color de fondo con opacidad */
+        backdrop-filter: blur(4px);
+        /* Aplica desenfoque al fondo */
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+    }
+}
