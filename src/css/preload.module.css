@@ -23,18 +23,6 @@ body {
     top: 0;
 }
 
-.botones {
-    margin-top: 2%;
-    margin-right: 2%;
-}
-
-.botones button {
-    border-radius: 2em;
-    width: 9rem;
-    height: 2rem;
-    border: none;
-}
-
 .logo {
     color: red;
     margin-left: 15px;
@@ -49,17 +37,6 @@ body {
     padding: 10px;
     margin: 0 40px;
     color: #fff;
-}
-
-.botonLogin {
-    background-color: white;
-    color: red;
-}
-
-.botonCrearCuenta {
-    margin-left: 2rem;
-    background-color: red;
-    color: white;
 }
 
 .todosContenido {

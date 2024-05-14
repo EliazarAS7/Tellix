@@ -6,6 +6,9 @@ import styles from '../css/preload.module.css'
 // importamos las hook de navegacion
 import { useGoLogin, useGoCrearCuenta } from '../hooks/NavigationFunctions';
 
+// importamos el header
+import Header from '../components/header';
+
 //imagenes de las peliculas
 
 import avatar from '../img/fotoPeliculas/Avatar.jpg'
@@ -24,15 +27,7 @@ const Preload = () => {
 
     return (
         <div className={styles.general}>
-            <div className={styles.barraNav}>
-                <div className={styles.logo}>
-                    <h1>Tellix</h1>
-                </div>
-                <div className={styles.botones}>
-                    <button className={styles.botonLogin} onClick={goToLogin}>Iniciar Sesión</button>
-                    <button className={styles.botonCrearCuenta} onClick={goToCrearCuenta}>Suscribete Ya</button>
-                </div>
-            </div>
+            <Header/>
             <div className={styles.todosContenido}>
                 <div className={styles.contenidoPeliculas}>
                     <div className={styles.izquierda}>
