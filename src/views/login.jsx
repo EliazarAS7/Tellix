@@ -41,7 +41,8 @@ const Login = () => {
         navigate("/admin");
       } else if (response.data.correo) {
         // Hacer coockie del usuario y de login
-        document.cookie = `session=${response.data.session}; path=/; max-age=3600`;
+        let strObj = JSON.stringify(response.data);
+        document.cookie = `session=${response.data.id}; path=/; max-age=3600`;
         navigate("/perfil");
       } else {
         setErrorMsg(response.data);

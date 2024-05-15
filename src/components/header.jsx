@@ -12,7 +12,6 @@ const Header = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const menuOptions = ['Administrar Perfil', 'Cambiar Perfil', 'Editar Cuenta', 'Cerrar Sesión'];
-    const [showBarNav, setShowBarNav] = useState(true);
     const navigate = useNavigate();
 
     // para navegar
@@ -36,15 +35,16 @@ const Header = () => {
     const handleMenuOptionClick = (option) => {
         switch (option) {
             case 'Administrar Perfil':
-                navigate('/login/perfil/principal/administrarPerfil');
+                navigate('/administrarPerfil');
                 break;
             case 'Cambiar Perfil':
-                navigate('/login/perfil');
+                navigate('/perfil');
                 break;
             case 'Editar Cuenta':
-                navigate('/login/perfil/principal/editarCuenta');
+                navigate('/editarCuenta');
                 break;
             case 'Cerrar Sesión':
+                document.cookie = 'session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 navigate('/');
                 break;
             default:
@@ -61,15 +61,17 @@ const Header = () => {
                 <Link className={principal.miLista}>Mi Lista</Link>
                 <Link>Categorias</Link>
             </div> */}
-            {showBarNav ? (
-                <div className={principal.barraNav}>
-                    <h1>Tellix</h1>
-                    <Link>Peliculas</Link>
-                    <Link>Series</Link>
-                    <Link className={principal.miLista}>Mi Lista</Link>
-                    <Link>Categorias</Link>
-                </div>
-            ) : null}
+            <div className={principal.header}>
+                <h1>Tellix</h1>
+                {showRightDiv ? (
+                    <div className={principal.barraNav}>
+                        <Link>Peliculas</Link>
+                        <Link>Series</Link>
+                        <Link className={principal.miLista}>Mi Lista</Link>
+                        <Link>Categorias</Link>
+                    </div>
+                ) : null}
+            </div>
             {showRightDiv ? (
                 <div className={principal.derecha}>
                     <img src={fotoPerfil} alt="" onClick={() => setMenuOpen(!menuOpen)} />

@@ -21,11 +21,11 @@ const Perfil = () => {
     <div className={perfil.principal}>
       <h1 className={perfil.titulo}>¿Quién eres? Elige tu perfil</h1>
       <div className={perfil.perfiles}>
-        <Link to='/login/perfil/principal'><img src={imagen1} alt="" /></Link>
-        <Link to='/login/perfil/principal'><img src={imagen2} alt="" /></Link>
-        <Link to='/login/perfil/principal'><img src={imagen3} alt="" /></Link>
-        <Link to='/login/perfil/principal'><img src={imagen4} alt="" /></Link>
-        <Link to='/login/perfil/principal'><img src={imagen5} alt="" /></Link>
+        <Link to='/principal'><img src={imagen1} alt="" /></Link>
+        <Link to='/principal'><img src={imagen2} alt="" /></Link>
+        <Link to='/principal'><img src={imagen3} alt="" /></Link>
+        <Link to='/principal'><img src={imagen4} alt="" /></Link>
+        <Link to='/principal'><img src={imagen5} alt="" /></Link>
       </div>
       {/* <button className={perfil.botonFinal}>
         <p>Administrar Cuenta</p>

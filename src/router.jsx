@@ -19,15 +19,12 @@ const router = () => {
         <Route path='crearCuenta' element={<CrearCuenta/>}/>
         <Route path='login' element={<Login/>}/>
 
-        <Route path='login/perfil' element={<Perfil/>}/>
-        <Route path='crearCuenta/perfil' element={<Perfil/>}/>
+        <Route path='perfil' element={<Perfil/>}/>
+        
+        <Route path='principal' element={<Principal/>}/>
 
-
-        <Route path='login/perfil/principal' element={<Principal/>}/>
-        <Route path='crearCuenta/perfil/principal' element={<Principal/>}/>
-
-        <Route path='login/perfil/principal/administrarPerfil' element={<AdministrarPerfil/>}/>
-        <Route path='login/perfil/principal/editarCuenta' element={<EditarCuenta/>}/>
+        <Route path='administrarPerfil' element={<AdministrarPerfil/>}/>
+        <Route path='editarCuenta' element={<EditarCuenta/>}/>
 
     </Routes>
   )

@@ -1,8 +1,19 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.header h1{
+    margin-left: 30px;
+}
+
 .barraNav{
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: left;
 }
 
 .barraNav a{
@@ -14,11 +25,12 @@
 }
 
 
-.barraNav h1{
+.todo h1{
     color: red;
     /* font-size: 2.3rem; */
-    margin-left: 3%;
+    /* margin-left: 10%; */
     margin-right: 3%;
+    z-index: 99;
 }
 
 .derecha img{
@@ -60,6 +72,7 @@
     right: 0;
     left: 0;
     top: 0;
+    z-index: 98;
 }
 
 .botones {
