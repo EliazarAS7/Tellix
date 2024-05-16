@@ -1,64 +1,137 @@
-.logo{
-    color: red;
-    margin-left: 2%;
+.logo {
+  color: red;
+  text-decoration: none;
 }
 
-.formulario{
-    margin-top: 10%;
+.logoh1 {
+  margin-left: 2%;
 }
 
-.formulario form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(221, 221, 221, 0.06); 
-    max-width: 40rem;
-    margin: 0 auto;
-    height: 30rem;
-    border-radius: 2em;
+.formulario {
+  margin-top: 10%;
 }
 
-.formulario input{
-    align-self: center;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    border-width: 0.5px;
-    color: rgb(255, 255, 255);
-    height: 56px;
-    padding-left: 12px;
-    width: 60%;
-    font-family: StreetLCG2;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    letter-spacing: 0px;
-    border-color: rgba(255, 255, 255, 0.4);
+.formulario form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(221, 221, 221, 0.06);
+  max-width: 40rem;
+  margin: 0 auto;
+  height: 30rem;
+  border-radius: 2em;
 }
 
-.iniciarSesion{
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.formulario input {
+  align-self: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border-width: 0.5px;
+  color: rgb(255, 255, 255);
+  height: 56px;
+  padding-left: 12px;
+  width: 60%;
+  font-family: StreetLCG2;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 0px;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-.input{
-    margin-top: 5px;
-    height: 2rem;
-    width: 14rem;
+.iniciarSesion {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.button{
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 2px;
-    height: 2rem;
-    width: 14.5rem;
+.input {
+  margin-top: 5px;
+  height: 2rem;
+  width: 14rem;
 }
 
-.formulario a{
-    color: #fff;
-    text-decoration: none;
+.button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  height: 2rem;
+  width: 14.5rem;
+}
+.suscripcion button {
+  border-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.formulario a {
+  color: #fff;
+  text-decoration: none;
+}
+.error {
+  color: red;
+}
+.loginP {
+  color: white;
+  text-decoration: none;
+}
+.loginP span {
+  text-decoration: underline;
+}
+
+.pass {
+  height: 56px;
+  width: 62%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.pass input {
+  align-self: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px 0 0 4px;
+  border-width: 0.5px 0 0.5px 0.5px;
+  color: rgb(255, 255, 255);
+  padding-left: 12px;
+  height: 56px;
+  width: 88%;
+  font-family: StreetLCG2;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 0px;
+  border-color: rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  -ms-border-radius: 4px 0 0 4px;
+  -o-border-radius: 4px 0 0 4px;
+}
+.pass button {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-width: 0.5px 0.5px 0.5px 0;
+  width: 12%;
+  height: 60px;
+  border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  -ms-border-radius: 0 4px 4px 0;
+  -o-border-radius: 0 4px 4px 0;
+}
+.pass button img {
+  width: 25px;
+  height: 25px;
+  z-index: 100;
 }
