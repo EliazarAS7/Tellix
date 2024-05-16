@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from '../css/preload.module.css'
@@ -25,9 +25,46 @@ const Preload = () => {
     const goToLogin = useGoLogin();
     const goToCrearCuenta = useGoCrearCuenta();
 
+    const [openQuestions, setOpenQuestions] = useState({});
+
+    const preguntas = [
+        {
+            pregunta: '¿Que es Tellix?',
+            respuesta: 'HBO Max es una experiencia de streaming espectacular que te trae las mejores historias de Warner Bros., HBO, Max, DC, Cartoon Network y mucho más, juntos por primera vez.',
+        },
+        {
+            pregunta: '¿HBO Max es adecuado para toda la familia?',
+            respuesta: 'Con los perfiles de los niños y los controles parentales personalizados, las familias pueden reír y aprender con personajes como Bugs Bunny, Peppa Pig, Harry Potter y más.',
+        },
+        {
+            pregunta: '¿Cuánto cuesta HBO Max?',
+            respuesta: 'HBO Max tiene un precio mensual de 9,99 €. Puedes ahorrar un 41 % si pagas el precio anual de 69,99 € por adelantado.',
+        },
+        {
+            pregunta: '¿Puedo modificar o cancelar mi suscripción?',
+            respuesta: '¡Sí! Puedes pasar de la suscripción mensual a la anual y viceversa. También puedes cancelar tu suscripción en cualquier momento.',
+        },
+        {
+            pregunta: '¿En qué dispositivos puedo reproducir HBO Max?',
+            respuesta: 'Puedes reproducir HBO Max en iPhone y iPad, móviles y tablets Android, Apple TV, Android TV, Chromecast, Samsung TV, LG, Chrome OS, MacOS, Windows PC, PS5, PS4, Xbox Series X|S, y Xbox One. Y más dispositivos en el futuro.',
+        },
+        {
+            pregunta: '¿Cómo inicio sesión en HBO Max?',
+            respuesta: 'Si te has suscrito a través de la app de HBO Max o HBOMax.com, puedes iniciar sesión con tu email y contraseña.',
+        },
+        // Puedes agregar más preguntas aquí
+    ];
+
+    const toggleQuestion = (key) => {
+        setOpenQuestions({
+            ...openQuestions,
+            [key]: !openQuestions[key],
+        });
+    };
+
     return (
         <div className={styles.general}>
-            <Header/>
+            <Header />
             <div className={styles.todosContenido}>
                 <div className={styles.contenidoPeliculas}>
                     <div className={styles.izquierda}>
@@ -64,59 +101,21 @@ const Preload = () => {
                 </div>
                 <div className={styles.contenidoPreguntas}>
                     <h1 className={styles.h1contenidoPreguntas}>Lo que todo el mundo se pregunta sobre Tellix</h1>
-                    <details>
-                        <summary>
-                            <h1>¿Qué es Tellix?</h1>
-                        </summary>
-                        <p>Tellix es una experiencia de streaming espectacular que te trae las mejores historias de Warner Bros., HBO, Max, DC, Cartoon Network y mucho más, juntos por primera vez.</p>
-                    </details>
-
-                    <details>
-                        <summary>
-                            <h1>¿Tellix es adecuado para toda la familia?</h1>
-                        </summary>
-                        <p>Con los perfiles de los niños y los controles parentales personalizados, las familias pueden reír y aprender con personajes como Bugs Bunny, Peppa Pig, Harry Potter y más.</p>
-                    </details>
-
-                    <details>
-                        <summary>
-                            <h1>¿Cuánto cuesta Tellix?</h1>
-                        </summary>
-                        <p>Tellix tiene un precio mensual de 9,99 €. Puedes ahorrar un 41 % si pagas el precio anual de 69,99 € por adelantado.</p>
-                    </details>
-
-                    <details>
-                        <summary>
-                            <h1>¿En qué dispositivos puedo reproducir Tellix?</h1>
-                        </summary>
-                        <p>Puedes reproducir Tellix en iPhone y iPad, móviles y tablets Android, Apple TV, Android TV, Chromecast, Samsung TV, LG, Chrome OS, MacOS, Windows PC, PS5, PS4, Xbox Series X|S, y Xbox One. Y más dispositivos en el futuro.</p>
-                    </details>
-
-                    <details>
-                        <summary>
-                            <h1>¿En qué dispositivos puedo reproducir Tellix?</h1>
-                        </summary>
-                        <p>Puedes reproducir Tellix en iPhone y iPad, móviles y tablets Android, Apple TV, Android TV, Chromecast, Samsung TV, LG, Chrome OS, MacOS, Windows PC, PS5, PS4, Xbox Series X|S, y Xbox One. Y más dispositivos en el futuro.</p>
-                    </details>
-
-                    <details>
-                        <summary>
-                            <h1>¿Cómo inicio sesión en Tellix?</h1>
-                        </summary>
-                        <p>Si te has suscrito a través de Tellix.com, puedes iniciar sesión con tu email y contraseña.</p>
-                    </details>
-
-                    <details>
-                        <summary>
-                            <h1>¿Cuáles son los títulos más populares de Tellix en España?</h1>
-                        </summary>
-                        <p>Nuestros títulos más vistos son True Detective: Noche polar, Barbie, Succession, Friends y Juego de Tronos.</p>
-                    </details>
+                    {preguntas.map((pregunta, index) => (
+                        <div key={index} className={styles.preguntaContainer}>
+                            <h2 className={styles.pregunta} onClick={() => toggleQuestion(index)}>
+                                {pregunta.pregunta}
+                            </h2>
+                            {openQuestions[index] ? (
+                                <p className={`${styles.respuesta} ${styles.visible}`}>{pregunta.respuesta}</p>
+                            ) : null}
+                        </div>
+                    ))}
                 </div>
                 <div className={styles.contenidoPrecio}>
                     <h1>Ve todo lo que quieras. Cancela en cualquier momento.</h1>
                     <p><span className={styles.span}>3,33€</span>/Mes</p>
-                    <button>Suscibete Ya</button>
+                    <button onClick={goToCrearCuenta}>Suscibete Ya</button>
                 </div>
             </div>
         </div>

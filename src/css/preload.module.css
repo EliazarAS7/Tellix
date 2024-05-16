@@ -158,85 +158,28 @@ body {
     font-size: 2.5rem;
 }
 
-
-details {
-    width: 75%;
-    min-height: 5px; /* Ajusta este valor según sea necesario */
-    max-width: 700px;
-    padding: 45px 70px 45px 45px;
-    margin: 0 auto;
-    position: relative;
-    font-size: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    box-sizing: border-box;
-    transition: all 0.3s;
-}
-
-details+details {
-    margin: 20px;
-}
-
-details[open] {
-    min-height: 50px; /* Ajusta este valor según sea necesario */
-    background-color: #f6f7f8;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px; /* Ajusta este valor según sea necesario para compensar el margen reducido */
-}
-
-details:not([open]) {
-    margin-bottom: -3%; /* Ajusta este valor según sea necesario */
-}
-
-details p {
-    color: #96999d;
-    font-weight: 300;
-}
-
-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
+.pregunta {
+    color: rgb(158, 134, 255);;
+    text-align: center;
     cursor: pointer;
+    transition: color 0.3s ease-in-out;
 }
 
-summary:focus {
-    outline: none;
+.respuesta {
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    /* Mueve la respuesta hacia arriba inicialmente */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-summary:focus::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
+.respuesta.visible {
+    opacity: 1;
+    transform: translateY(0);
+    /* Restaura la posición original */
 }
 
-summary::-webkit-details-marker {
-    display: none;
-}
-
-.control-icon {
-    fill: green;
-    transition: 0.3s ease;
-    pointer-events: none;
-}
-
-.control-icon-close {
-    display: none;
-}
-
-details[open] .control-icon-close {
-    display: initial;
-    transition: 0.3s ease;
-}
-
-details[open] .control-icon-expand {
-    display: none;
-}
 
 
 /*  Precio  */
@@ -272,10 +215,10 @@ details[open] .control-icon-expand {
     font-size: 2.2rem;
 }
 
-@media (max-width: 932px ){
-    .todosContenido{
+@media (max-width: 932px) {
+    .todosContenido {
         margin-top: 14%;
-        
+
     }
 
     .barraNav {

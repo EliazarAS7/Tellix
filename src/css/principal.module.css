@@ -1,6 +1,10 @@
 .todasPeliculas{
     margin-top: 5%;
+}
+
+.peliculas h2{
     color: #fff;
+    margin-left: 1%;
 }
 
 .soloTellix{
@@ -12,6 +16,44 @@
 .soloTellix img{
     flex: 1 0 auto;
     margin: 10px;
-    max-width: 400px;
-    max-height: 400px;
+    /* max-width: 165px;
+    max-height: 300px; */
+    height: 230px;
+    width: 170px;
 }
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed; /* Fijar el modal en la pantalla */
+    z-index: 1; /* Asegurar que el modal esté encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo de la pantalla */
+    height: 100%; /* Alto completo de la pantalla */
+    overflow: auto; /* Permitir desplazamiento si el contenido excede el alto de la pantalla */
+    background-color: rgba(0,0,0,0.4); /* Fondito oscuro */
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centrar horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del contenido del modal */
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

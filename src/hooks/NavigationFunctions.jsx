@@ -18,22 +18,22 @@ export function useGoCrearCuenta(){
 // ir a perfiles desde crear cuenta y desde el login
 export function useGoPerfilL(){
     const navigate = useNavigate();
-    return () => navigate('/login/perfil');
+    return () => navigate('/perfil');
 }
 
 export function useGoPerfilC(){
     const navigate = useNavigate();
-    return () => navigate('/crearCuenta/perfil');
+    return () => navigate('/perfil');
 }
 
 // ir a la vista principal desde crear cuenta o desde el login 
 
 export function useGoPrincipalL(){
     const navigate = useNavigate();
-    return () => navigate('/login/perfil/principal');
+    return () => navigate('/principal');
 }
 
 export function useGoPrincipalC(){
     const navigate = useNavigate();
-    return () => navigate('/crearCuenta/perfil/principal');
+    return () => navigate('/principal');
 }
