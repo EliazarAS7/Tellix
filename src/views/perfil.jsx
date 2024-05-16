@@ -1,37 +1,94 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import { useState } from "react";
+import { redirect, useNavigate } from "react-router";
+import axios from "axios";
 
 //importamos los css
-import perfil from '../css/perfil.module.css'
+import perfil from "../css/perfil.module.css";
 
-// imagenes de los perfiles
-import imagen1 from '../img/fotoPerfil/Captura de pantalla 2024-05-11 124023.png'
-import imagen2 from '../img/fotoPerfil/foto2.png';
-import imagen3 from '../img/fotoPerfil/foto3.png';
-import imagen4 from '../img/fotoPerfil/foto7.png';
-import imagen5 from '../img/fotoPerfil/foto6.png';
+function getCookie(nombre) {
+  const valor = `; ${document.cookie}`;
+  const partes = valor.split(`; ${nombre}=`);
+  if (partes.length === 2) return partes.pop().split(";").shift();
+}
 
-import { useGoPrincipalL } from '../hooks/NavigationFunctions'
+function createCookiePerfil(id) {
+  document.cookie = `perfil=${id}; path=/; max-age=3600`;
+}
 
 const Perfil = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [nuevoNombrePerfil, setNuevoNombrePerfil] = useState("");
 
-  const goToPrincipal = useGoPrincipalL();
+  const handleAddPerfilClick = () => {
+    setShowPopup(true);
+  };
+  const handleAddPerfilClick2 = () => {
+    setShowPopup(false);
+  };
+  const handleCrearPerfil = () => {
+    setShowPopup(false);
+  };
+
+  document.cookie = "perfil=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  const rutaBase = "./img/fotoPerfil/";
+  const [perfiles, setPerfiles] = useState([]);
+  useEffect(() => {
+    const showProfiles = async () => {
+      let idUsuario = getCookie("session");
+      let url =
+        "http://194.164.170.62:5001/api/tellix/perfiles/profiles?usuID=" +
+        idUsuario;
+      let response = await axios.get(url);
+      setPerfiles(response.data);
+    };
+
+    showProfiles();
+  }, []);
 
   return (
     <div className={perfil.principal}>
       <h1 className={perfil.titulo}>¿Quién eres? Elige tu perfil</h1>
       <div className={perfil.perfiles}>
-        <Link to='/principal'><img src={imagen1} alt="" /></Link>
-        <Link to='/principal'><img src={imagen2} alt="" /></Link>
-        <Link to='/principal'><img src={imagen3} alt="" /></Link>
-        <Link to='/principal'><img src={imagen4} alt="" /></Link>
-        <Link to='/principal'><img src={imagen5} alt="" /></Link>
+        {perfiles.map((perfil) => (
+          <Link
+            key={perfil.id}
+            to="/principal"
+            onClick={() => createCookiePerfil(perfil.id)}
+          >
+            <img
+              src={`${rutaBase}${
+                perfil.imagen !== "" ? perfil.imagen + ".png" : "foto0.png"
+              }`}
+              alt=""
+            />
+            <p>{perfil.nombre}</p>
+          </Link>
+        ))}
+        {perfiles.length < 5 && (
+          <Link onClick={handleAddPerfilClick}>
+            <img src="./img/fotoPerfil/add.png" alt="" />
+            <p>Añadir Perfil</p>
+          </Link>
+        )}
+        {showPopup && (
+          <div className={perfil.fondo} onClick={handleAddPerfilClick2}>
+            <div className={perfil.popup}>
+              <input
+                type="text"
+                value={nuevoNombrePerfil}
+                onChange={(e) => setNuevoNombrePerfil(e.target.value)}
+                placeholder="Nombre del perfil"
+              />
+              <button onClick={handleCrearPerfil}>Crear</button>
+            </div>
+          </div>
+        )}
       </div>
-      {/* <button className={perfil.botonFinal}>
-        <p>Administrar Cuenta</p>
-      </button> */}
     </div>
-  )
-}
+  );
+};
 
-export default Perfil
+export default Perfil;
