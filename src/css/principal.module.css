@@ -1,59 +1,87 @@
-.todasPeliculas{
-    margin-top: 5%;
+.general {
+  margin: 0 auto;
+}
+.todasPeliculas {
+  margin-top: 5%;
 }
 
-.peliculas h2{
-    color: #fff;
-    margin-left: 1%;
+.peliculas h2 {
+  color: #fff;
+  margin-left: 1%;
 }
 
-.soloTellix{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.soloTellix {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.soloTellix img{
-    flex: 1 0 auto;
-    margin: 10px;
-    /* max-width: 165px;
+.soloTellix img {
+  cursor: pointer;
+  flex: 1 0 auto;
+  margin: 10px;
+  /* max-width: 165px;
     max-height: 300px; */
-    height: 230px;
-    width: 170px;
+  height: 230px;
+  width: 170px;
 }
 
 /* Estilos para el modal */
-.modal {
-    display: none; /* Ocultar el modal por defecto */
-    position: fixed; /* Fijar el modal en la pantalla */
-    z-index: 1; /* Asegurar que el modal esté encima de otros elementos */
-    left: 0;
-    top: 0;
-    width: 100%; /* Ancho completo de la pantalla */
-    height: 100%; /* Alto completo de la pantalla */
-    overflow: auto; /* Permitir desplazamiento si el contenido excede el alto de la pantalla */
-    background-color: rgba(0,0,0,0.4); /* Fondito oscuro */
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* Centrar horizontalmente */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Ancho del contenido del modal */
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
+
+.model {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+  padding-left: 2%;
+}
+.contenido {
+  display: flex;
+  flex-direction: row;
+}
+
+.reproductor {
+  width: 100%;
+  margin: 1%;
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+}
+
+.datos h3 {
+  width: 90%;
+}
+.close {
+  border: none;
+  position: absolute;
+  top: 15%;
+  right: 7%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.add {
+  border: 1px solid #e5e7eb;
+  margin-top: 5%;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
