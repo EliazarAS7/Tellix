@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-
+import { useNavigate, Link, redirect } from "react-router-dom";
+import axios from "axios";
 import { useGoLogin, useGoCrearCuenta } from "../hooks/NavigationFunctions";
 
-import fotoPerfil from "../img/fotoPerfil/foto2.png";
+// import fotoPerfil from "../img/fotoPerfil/foto2.png";
 
 import principal from "./header.module.css";
 
+function getCookie(nombre) {
+  const valor = `; ${document.cookie}`;
+  const partes = valor.split(`; ${nombre}=`);
+  if (partes.length === 2) return partes.pop().split(";").shift();
+}
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuOptions = [
@@ -23,6 +28,18 @@ const Header = () => {
 
   // leer la cookie
   const [showRightDiv, setShowRightDiv] = useState(false);
+  const [fotoPerfil, setFotoPerfil] = useState("./img/fotoPerfil/foto0.png");
+
+  const checkProfile = async () => {
+    const urlPerfil =
+      "http://194.164.170.62:5001/api/tellix/perfiles/" + getCookie("perfil");
+    let response = await axios.get(urlPerfil);
+    if (response.data.imagen === "") {
+      setFotoPerfil("./img/fotoPerfil/foto0.png");
+    } else {
+      setFotoPerfil("./img/fotoPerfil/" + response.data.imagen + ".png");
+    }
+  };
 
   useEffect(() => {
     const checkSession = () => {
@@ -30,7 +47,8 @@ const Header = () => {
         .split("; ")
         .find((row) => row.startsWith("session="));
       if (sessionCookie) {
-        setShowRightDiv(true); // Muestra el div derecho si la cookie existe
+        setShowRightDiv(true);
+        checkProfile(); // Muestra el div derecho si la cookie existe
       }
     };
 
@@ -70,7 +88,9 @@ const Header = () => {
                 <Link>Categorias</Link>
             </div> */}
       <div className={principal.header}>
-        <h1>Tellix</h1>
+        <Link to={"/principal"} className={principal.tellixBtn}>
+          <h1>Tellix</h1>
+        </Link>
         {showRightDiv ? (
           <div className={principal.barraNav}>
             <Link>Peliculas</Link>

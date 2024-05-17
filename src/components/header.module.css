@@ -1,99 +1,103 @@
-.header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: left;
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
 }
 
-.header h1{
-    margin-left: 30px;
+.header h1 {
+  margin-left: 30px;
 }
 
-.barraNav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: left;
+.barraNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
 }
 
-.barraNav a{
-    text-decoration: none;
-    /* padding: 10px; */
-    margin: 0 15px;
-    width: 70px;
-    color: #fff;
+.barraNav a {
+  text-decoration: none;
+  /* padding: 10px; */
+  margin: 0 15px;
+  width: 70px;
+  color: #fff;
 }
 
-
-.todo h1{
-    color: red;
-    /* font-size: 2.3rem; */
-    /* margin-left: 10%; */
-    margin-right: 3%;
-    z-index: 99;
+.tellixBtn {
+  text-decoration: none;
+  margin-right: 5%;
 }
 
-.derecha img{
-    width: 60px;
-    height: 60px;
-    margin-top: 8%;
-    border-radius: 50%;
+.todo h1 {
+  color: red;
+  /* font-size: 2.3rem; */
+  /* margin-left: 10%; */
+  margin-right: 3%;
+  z-index: 99;
 }
 
-.derecha{
-    margin-right: 4%;
-    margin-top: 0.3%;
+.derecha img {
+  width: 60px;
+  height: 60px;
+  margin-top: 8%;
+  border-radius: 50%;
+}
+
+.derecha {
+  margin-right: 4%;
+  margin-top: 0.3%;
 }
 
 .menuOption {
-    cursor: pointer;
-    padding: 8px 0;
-    text-align: left;
-    color: white;
+  cursor: pointer;
+  padding: 8px 0;
+  text-align: left;
+  color: white;
 }
 
 .menu {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    margin-left: -2.5%;
-    padding: 12px 16px;
-    border-radius: 4px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-left: -2.5%;
+  padding: 12px 16px;
+  border-radius: 4px;
 }
 
-.todo{
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(0,0,0,0.8); /* Color de fondo con opacidad */
-    backdrop-filter: blur(4px); /* Aplica desenfoque al fondo */
-    position: fixed;
-    justify-content: space-between;
-    right: 0;
-    left: 0;
-    top: 0;
-    z-index: 98;
+.todo {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.8); /* Color de fondo con opacidad */
+  backdrop-filter: blur(4px); /* Aplica desenfoque al fondo */
+  position: fixed;
+  justify-content: space-between;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 98;
 }
 
 .botones {
-    margin-top: 1.5%;
-    margin-right: 2%;
+  margin-top: 1.5%;
+  margin-right: 2%;
 }
 
 .botones button {
-    border-radius: 2em;
-    width: 9rem;
-    height: 2rem;
-    border: none;
+  border-radius: 2em;
+  width: 9rem;
+  height: 2rem;
+  border: none;
 }
 
 .botonLogin {
-    background-color: white;
-    color: red;
+  background-color: white;
+  color: red;
 }
 
 .botonCrearCuenta {
-    margin-left: 2rem;
-    background-color: red;
-    color: white;
+  margin-left: 2rem;
+  background-color: red;
+  color: white;
 }
