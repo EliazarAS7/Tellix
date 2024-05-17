@@ -159,7 +159,8 @@ body {
 }
 
 .pregunta {
-    color: rgb(158, 134, 255);;
+    color: rgb(158, 134, 255);
+    ;
     text-align: center;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
@@ -170,15 +171,27 @@ body {
     text-align: center;
     opacity: 0;
     transform: translateY(-20px);
-    /* Mueve la respuesta hacia arriba inicialmente */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    animation: fadeInDown 0.5s ease-in-out forwards;
 }
 
-.respuesta.visible {
+/* .respuesta.visible {
     opacity: 1;
     transform: translateY(0);
-    /* Restaura la posición original */
+} */
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+
 
 
 

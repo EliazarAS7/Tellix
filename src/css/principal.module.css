@@ -29,21 +29,38 @@
 /* Estilos para el modal */
 
 .model {
-  position: absolute;
+  position: fixed; /* Cambiado de absolute a fixed para que ocupe toda la pantalla independientemente de la posición del contenido */
   z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  left: 50%; /* Centrado horizontalmente */
+  top: 50%; /* Centrado verticalmente */
+  transform: translate(-50%, -50%); /* Ajuste para asegurar el centro del modal en el centro de la pantalla */
+  width: 80%; /* Ajusta el tamaño del modal según prefieras */
+  height: 80%; /* Ajusta el tamaño del modal según prefieras */
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 10;
-  padding-left: 2%;
+  align-items: center; /* Alinea el contenido del modal al centro */
+  overflow: auto; /* Permite el scroll dentro del modal si es necesario */
 }
+
+/* Contenedor del fondo */
+.fondoCont {
+  position: fixed; /* Fijo para cubrir toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Ajusta la opacidad según prefieras */
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Previene el scroll de la página */
+}
+
 .contenido {
   display: flex;
   flex-direction: row;

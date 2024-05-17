@@ -21,7 +21,7 @@ import mulan from '../img/fotoPeliculas/mulan.jpg'
 import fotoOuter from '../img/fotoPeliculas/outerBanks-removebg-preview.png';
 
 const Preload = () => {
-
+    
     const goToLogin = useGoLogin();
     const goToCrearCuenta = useGoCrearCuenta();
 
