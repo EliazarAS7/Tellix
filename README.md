@@ -25,15 +25,15 @@ Tellix es una plataforma de entretenimiento digital innovadora, diseñada para o
 
 ### Diagrama de casos de uso
 
-![diagrama3](https://hackmd.io/_uploads/BkJFDR44p.jpg)
+![CasosUsoChillFlix](https://hackmd.io/_uploads/B1ppzJ_Q0.png)
 
-### Diagrama de clases
+### Diagrama UML
 
-![diagrama2](https://hackmd.io/_uploads/HJ0R5XE4a.jpg)
+![UMLChillFlix](https://hackmd.io/_uploads/rkSymy_mC.png)
 
 ### Diagrama de entidad-relación
 
-![diagrama1](https://hackmd.io/_uploads/BywC9QNEa.jpg)
+![DiagramaER](https://hackmd.io/_uploads/rytRzJOQR.png)
 
 ### Estructura general
 
