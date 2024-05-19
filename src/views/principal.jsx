@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { json, Navigate, useNavigate } from "react-router-dom";
 // import { Modal, Button } from 'react-bootstrap'
 import Modal from "react-bootstrap/Modal"; // Importa Modal de react-bootstrap
 import Button from "react-bootstrap/Button"; // Importa Button de react-bootstrap
@@ -37,7 +37,6 @@ const movies = response.data;
 let url2 = "http://194.164.170.62:5001/api/tellix/series/";
 let response2 = await axios.get(url2);
 const series = response2.data;
-console.log(series);
 
 let contenido = [];
 for (let i = 0; i < movies.length; i++) {
@@ -55,6 +54,10 @@ const Principal = () => {
   const [showSerie, setShowSerie] = useState(false);
   const [selectedContent, setSelectedContent] = useState(null);
   const [currentIndices, setCurrentIndices] = useState(Array(4).fill(0)); // Array de estados para cada carrusel
+  const [selectedOption, setSelectedOption] = useState("");
+  const [temporadas, setTemporadas] = useState("");
+  const [tempID, setTempID] = useState("");
+  const [capitulos, setCapitulos] = useState("");
   const carouselRefs = useRef(Array(4).fill(null));
 
   function Carousel({ items }) {
@@ -108,12 +111,43 @@ const Principal = () => {
       prevIndices.map((idx, i) => (i === index ? idx + 1 : idx))
     );
   };
+  const obtenerCapitulos = async () => {
+    let urlCap = "http://194.164.170.62:5000/api/tellix/capitulos/";
+    const responseCap = await axios.get(urlCap);
+    const cont = [];
+    for (let i = 0; i < responseCap.data.length; i++) {
+      if (responseCap.data[i].temporada.id === tempID) {
+        cont.push(responseCap.data[i]);
+      }
+    }
+  };
+  const handleOptionChange = async (event) => {
+    setSelectedOption(event.target.value);
+    setTempID(event.target.value);
+    obtenerCapitulos();
+  };
 
-  const handleImageClick = (content) => {
+  const handleImageClick = async (content) => {
     setSelectedContent(content);
     if (content.duracion) {
       setShowFilm(true);
     } else {
+      localStorage.setItem("imagen", content.imagen);
+      const urlTemp = "http://194.164.170.62:5000/api/tellix/temporadas/";
+      const responseTemp = await axios.get(urlTemp);
+      const cont = [];
+      const id = [];
+      for (let i = 0; i < responseTemp.data.length; i++) {
+        if (responseTemp.data[i].serie.id === content.id) {
+          cont.push({
+            id: responseTemp.data[i].id,
+            nombre: responseTemp.data[i].nombre,
+          });
+        }
+      }
+      console.log(cont);
+      setTemporadas(cont);
+      setTempID(id);
       setShowSerie(true);
     }
   };
@@ -122,7 +156,9 @@ const Principal = () => {
     setShowFilm(false);
     setShowSerie(false);
   };
-
+  useEffect(() => {
+    // Actualizar el componente cuando `temporadas` cambie
+  }, [temporadas]);
   const changeFilm = async () => {
     let idPerfil = getCookie("perfil");
     let url =
@@ -209,28 +245,43 @@ const Principal = () => {
                 <img src="./icons/close.svg" alt="" />
               </button>
               <section className={principal.contenido}>
-                <div className={principal.reproductor}>
-                  <h1>{selectedContent.nombre}</h1>
-                  <iframe
-                    width="960"
-                    height="615"
-                    src={selectedContent.link}
-                    title={selectedContent.nombre}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  ></iframe>
-                </div>
                 <div className={principal.datos}>
+                  <h1>{selectedContent.nombre}</h1>
                   <div></div>
                   <h3>{selectedContent.descripcion}</h3>
                   <p>Actores: {selectedContent.actores}</p>
                   <p>Año: {selectedContent.año}</p>
-                  <button className={principal.add} onClick={changeSerie}>
-                    <img src="./icons/add.svg" alt="" />
-                  </button>
+                  <div>
+                    <button className={principal.add} onClick={changeSerie}>
+                      <img src="./icons/add.svg" alt="" />
+                    </button>
+                    <select
+                      value={selectedOption}
+                      onChange={handleOptionChange}
+                    >
+                      {temporadas.map((temporada) => (
+                        <option key={temporada.id} value={temporada.id}>
+                          {temporada.nombre}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
+                {selectedOption && (
+                  <div>
+                    {capitulos.map((cap) => (
+                      <div>
+                        <img
+                          src={`./img/fotoSerie/${localStorage.getItem(
+                            "imagen"
+                          )}.png`}
+                        ></img>
+                        <h2>{cap.nombre}</h2>
+                        <p>{cap.duracion}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </section>
             </div>
           </div>
