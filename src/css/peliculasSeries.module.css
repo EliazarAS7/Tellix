@@ -130,3 +130,15 @@
   background-color: red; /* Cambia el color según tus preferencias */
   color: white; /* Para mantener el texto legible */
 }
+
+@media (max-width: 1300px) {
+  
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 400px) {
+  
+}
