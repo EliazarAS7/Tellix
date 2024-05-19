@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 // import { Modal, Button } from 'react-bootstrap'
 import Modal from "react-bootstrap/Modal"; // Importa Modal de react-bootstrap
@@ -37,25 +37,6 @@ const movies = response.data;
 let url2 = "http://194.164.170.62:5001/api/tellix/series/";
 let response2 = await axios.get(url2);
 const series = response.data;
-
-// const movies = [
-//   { title: "Avatar", image: avatar },
-//   { title: "El Niño", image: elNino },
-//   { title: "Aladín", image: aladin },
-//   { title: "La Monja", image: laMonja },
-//   { title: "Frozen", image: frozen },
-//   { title: "Venom", image: venom },
-//   { title: "Mulan", image: mulan },
-// ];
-
-// const series = [
-//   { title: "Avatar", image: portada1 },
-//   { title: "El Niño", image: portada2 },
-//   { title: "Aladín", image: portada3 },
-//   { title: "La Monja", image: portada4 },
-//   { title: "La Maldicion de Hill House", image: portada5 },
-//   { title: "Stranger Things", image: portada6 },
-// ];
 
 const Principal = () => {
   const [showFilm, setShowFilm] = useState(false);

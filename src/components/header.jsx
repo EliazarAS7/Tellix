@@ -12,7 +12,17 @@ function getCookie(nombre) {
   const partes = valor.split(`; ${nombre}=`);
   if (partes.length === 2) return partes.pop().split(";").shift();
 }
+
+// Para coger los generos de las peliculas
+let urlGenero = "http://194.164.170.62:5001/api/tellix/categorias/";
+let responseGenero = await axios.get(urlGenero);
+const generos = responseGenero.data;
+console.log(generos);
+
 const Header = () => {
+  // para las categorias
+  const [categoriasAbiertas, setCategoriasAbiertas] = useState(false);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const menuOptions = [
     "Administrar Perfil",
@@ -80,23 +90,25 @@ const Header = () => {
 
   return (
     <div className={principal.todo}>
-      {/* <div className={principal.barraNav}>
-                <h1>Tellix</h1>
-                <Link>Peliculas</Link>
-                <Link>Series</Link>
-                <Link className={principal.miLista}>Mi Lista</Link>
-                <Link>Categorias</Link>
-            </div> */}
       <div className={principal.header}>
         <Link to={"/principal"} className={principal.tellixBtn}>
           <h1>Tellix</h1>
         </Link>
         {showRightDiv ? (
           <div className={principal.barraNav}>
-            <Link>Peliculas</Link>
+            <Link to={'/PeliculasSeries'}>Peliculas</Link>
             <Link>Series</Link>
             <Link className={principal.miLista}>Mi Lista</Link>
-            <Link>Categorias</Link>
+            <Link onClick={() => setCategoriasAbiertas(!categoriasAbiertas)}>Categorías</Link>
+            {categoriasAbiertas && (
+              <div className={principal.categoriasMenu}>
+                {generos.map((categoria, index) => (
+                  <div key={index} className={principal.categoriaItem}>
+                    {categoria.nombre}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ) : null}
       </div>

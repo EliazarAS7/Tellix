@@ -14,6 +14,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
+  position: relative;
 }
 
 .barraNav a {
@@ -101,3 +102,34 @@
   background-color: red;
   color: white;
 }
+
+/* Estilos para el menú de categorías */
+.categoriasMenu {
+  position: absolute;
+  top: 100%; /* Posicionamiento justo debajo del último elemento hijo de barraNav */
+  left: 0;
+  background-color: rgba(0, 0, 0, 1); /* Color de fondo con opacidad */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+  padding: 10px;
+  width: 50%;
+  margin-left: 76%;
+  margin-top: 4%;
+}
+
+.categoriaItem {
+  text-align: left;
+  padding: 8px 0;
+  cursor: pointer;
+  color: white;
+}
+
+
+.categoriaItem:hover {
+  padding: 8px 0;
+  cursor: pointer;
+  color: white;
+  border-bottom: solid 1px #fff;
+}
+
+

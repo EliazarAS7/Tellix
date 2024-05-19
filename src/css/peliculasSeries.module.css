@@ -1,0 +1,129 @@
+.peliculas{
+    margin-top: 6%;
+}
+
+.todasPeliculas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 13%;
+    margin-right: 10%;
+}
+
+.todasPeliculas img {
+    cursor: pointer;
+    flex: 1 0 auto;
+    margin: 10px;
+    height: 230px;
+    width: 170px;
+}
+
+
+/* estilo para el modals */
+.model {
+    position: fixed;
+    /* Cambiado de absolute a fixed para que ocupe toda la pantalla independientemente de la posición del contenido */
+    z-index: 1;
+    left: 50%;
+    /* Centrado horizontalmente */
+    top: 50%;
+    /* Centrado verticalmente */
+    transform: translate(-50%, -50%);
+    /* Ajuste para asegurar el centro del modal en el centro de la pantalla */
+    width: 80%;
+    /* Ajusta el tamaño del modal según prefieras */
+    height: 80%;
+    /* Ajusta el tamaño del modal según prefieras */
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Alinea el contenido del modal al centro */
+    overflow: auto;
+    /* Permite el scroll dentro del modal si es necesario */
+}
+
+/* Contenedor del fondo */
+.fondoCont {
+    position: fixed;
+    /* Fijo para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Ajusta la opacidad según prefieras */
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Previene el scroll de la página */
+}
+
+.contenido {
+    display: flex;
+    flex-direction: row;
+}
+
+.reproductor {
+    width: 100%;
+    margin: 1%;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+}
+
+.datos h3 {
+    width: 90%;
+}
+
+.close {
+    border: none;
+    position: absolute;
+    top: 15%;
+    right: 7%;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.add {
+    border: 1px solid #e5e7eb;
+    margin-top: 5%;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination button{
+    margin-left: 5px;
+    border: none;
+    /* background-color: #fff;
+    color: black; */
+    width: 29px;
+    height: 20px;
+}
+
+/* peliculasSeries.module.css */
+.paginaActual {
+    background-color: red; /* Cambia el color según tus preferencias */
+    color: white; /* Para mantener el texto legible */
+}
