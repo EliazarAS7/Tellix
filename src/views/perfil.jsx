@@ -1,8 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import ReactDOM from "react-dom/client";
-import { Modal, Button } from "react-bootstrap"; 
-import { redirect, useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 //importamos los css
@@ -19,6 +16,7 @@ function createCookiePerfil(id) {
 }
 
 const Perfil = () => {
+  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const [nuevoNombrePerfil, setNuevoNombrePerfil] = useState("");
 
@@ -28,10 +26,24 @@ const Perfil = () => {
   const handleAddPerfilClick2 = () => {
     setShowPopup(false);
   };
-  const handleCrearPerfil = () => {
-    setShowPopup(false);
+  const handleCrearPerfil = async () => {
+    let url = "http://194.164.170.62:5001/api/tellix/perfiles/";
+    let response = await axios.post(url, {
+      nombre: nuevoNombrePerfil,
+      imagen: "foto0",
+    });
+    handleAddPerfil(getCookie("session"), response.data.id);
+    createCookiePerfil(response.data.id);
+    navigate("/principal");
   };
-
+  const handleAddPerfil = async (usuID, perfilID) => {
+    let url =
+      "http://194.164.170.62:5001/api/tellix/usuarios/addPerfil?usuID=" +
+      usuID +
+      "&perfilID=" +
+      perfilID;
+    let response = await axios.post(url);
+  };
   document.cookie = "perfil=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   const rutaBase = "./img/fotoPerfil/";
   const [perfiles, setPerfiles] = useState([]);
@@ -74,15 +86,26 @@ const Perfil = () => {
           </Link>
         )}
         {showPopup && (
-          <div className={perfil.fondo} onClick={handleAddPerfilClick2}>
+          <div className={perfil.fondo}>
             <div className={perfil.popup}>
               <input
                 type="text"
                 value={nuevoNombrePerfil}
+                className={perfil.inputName}
                 onChange={(e) => setNuevoNombrePerfil(e.target.value)}
                 placeholder="Nombre del perfil"
               />
-              <button onClick={handleCrearPerfil}>Crear</button>
+              <section className={perfil.divBtn}>
+                <button onClick={handleCrearPerfil} className={perfil.button}>
+                  Crear
+                </button>
+                <button
+                  onClick={handleAddPerfilClick2}
+                  className={perfil.button1}
+                >
+                  Cancelar
+                </button>
+              </section>
             </div>
           </div>
         )}
