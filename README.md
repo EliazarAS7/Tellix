@@ -2,17 +2,15 @@
 
 # Tabla de contenidos
 
-- [Proyecto Drogo (PHP)](#proyecto-drogo-php)
+- [Proyecto Tellix]
 - [Tabla de contenidos](#tabla-de-contenidos)
-  - [Parte 1: Aplicación Web]
+  - [Parte 1: Aplicación Web](#parte-1:-aplicación-web)
       - [Descripción](#descripción)
       - [Diagramas](#diagramas)
       - [Estructura Gneral]
-  - [Parte 2: API](#diagramas)
-      - [EndPoints de la API] 
-      - [Requisitos Previos]
-      - [Configuración de la Base de Datos]
-      - [Explicación de la base de datos]
+  - [Parte 2: API](#parte-2:-api)
+      - [EndPoints de la API](#endpoints-de-la-api)
+      - [Requisitos Previos](#requisitos-previo)
 
 # Parte 1: Aplicación Web
    
@@ -151,14 +149,8 @@ Aqui esta el index.html que es en donde se renderiza toda la aplicación, y la c
   - Search by name paged: http://194.164.170.62:5001/api/tellix/familias/search/paged?name=Accion&page=0&size=5&sort=id,asc
 
 ### Requisitos Previos:
-
-
-### Configuración de la Base de Datos:
-
-
-### Explicación de la base de datos
-
-
+- Cuando te instales el proyecto te tendras que descargar todos los package, para eso en la consola tendras que poner: npm i, y automaticamente se te instala todos los paquetes
+- Para arrancar el proyecto localmente tienes que poner en la consola npm run start y se te pondra en el puerto 3000 automaticamente.
 
 ## Autoría
 
