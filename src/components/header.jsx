@@ -96,15 +96,31 @@ const Header = () => {
         </Link>
         {showRightDiv ? (
           <div className={principal.barraNav}>
-            <Link to={'/PeliculasSeries'}>Peliculas</Link>
-            <Link>Series</Link>
-            <Link className={principal.miLista}>Mi Lista</Link>
+            <Link onClick={(e) => {
+              e.preventDefault();
+              sessionStorage.setItem('tipo', 'pelicula');
+              navigate('/PeliculasSeries');
+            }}>Peliculas</Link>
+            <Link onClick={(e) => {
+              e.preventDefault();
+              sessionStorage.setItem('tipo', 'serie');
+              navigate('/PeliculasSeries');
+            }}>Series</Link>
+            <Link className={principal.miLista} onClick={(e) => {
+              e.preventDefault()
+              sessionStorage.setItem('tipo', 'lista');
+              navigate('/PeliculasSeries');
+            }}>Mi Lista</Link>
             <Link onClick={() => setCategoriasAbiertas(!categoriasAbiertas)}>Categorías</Link>
             {categoriasAbiertas && (
               <div className={principal.categoriasMenu}>
                 {generos.map((categoria, index) => (
                   <div key={index} className={principal.categoriaItem}>
-                    {categoria.nombre}
+                    <Link onClick={(e) => {
+                      e.preventDefault();
+                      sessionStorage.setItem('tipo', categoria.nombre);
+                      navigate('/PeliculasSeries');
+                    }}>{categoria.nombre}</Link>
                   </div>
                 ))}
               </div>
