@@ -7,8 +7,6 @@ import axios from "axios";
 //importamos los css
 import login from "../css/login.module.css";
 
-// importamos los hooks de navegacion
-// import { useGoPerfilL } from "../hooks/NavigationFunctions";
 let botonSus = true;
 
 const Login = () => {
