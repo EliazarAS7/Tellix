@@ -21,7 +21,7 @@ import portada1 from "../img/fotoSeries/16438035343981.jpg";
 import portada2 from "../img/fotoSeries/5fa5368699b32.jpeg";
 import portada3 from "../img/fotoSeries/descarga.jpeg";
 import portada4 from "../img/fotoSeries/img_5032.webp";
-import portada5 from "../img/fotoSeries/maldicion-hill-house-portada.webp";
+import portada5 from "../img/fotoSeries/La Maldicion de Hill House.webp";
 import portada6 from "../img/fotoSeries/netflix_vs_hbo-stranger_things-netflix.jpg";
 
 //importamos los css

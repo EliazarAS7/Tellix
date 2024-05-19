@@ -20,6 +20,13 @@ import venom from '../img/fotoPeliculas/venom.jpg'
 import mulan from '../img/fotoPeliculas/mulan.jpg'
 import fotoOuter from '../img/fotoPeliculas/outerBanks-removebg-preview.png';
 
+import serie1 from '../img/fotoSeries/Dark.jpeg'
+import serie2 from '../img/fotoSeries/La Maldicion de Hill House.webp'
+import serie3 from '../img/fotoSeries/One Piece.jpeg'
+import serie4 from '../img/fotoSeries/Black Mirror.jpeg'
+import serie5 from '../img/fotoSeries/La Casa de Papel.jpeg'
+import serie6 from '../img/fotoSeries/Peppa Pig.jpeg'
+
 const Preload = () => {
     
     const goToLogin = useGoLogin();
@@ -91,12 +98,12 @@ const Preload = () => {
                         </div>
                     </div>
                     <div className={styles.abajo}>
-                        <img src={avatar} alt="" />
-                        <img src={aladin} alt="" />
-                        <img src={elNino} alt="" />
-                        <img src={laMonja} alt="" />
-                        <img src={venom} alt="" />
-                        <img src={mulan} alt="" />
+                        <img src={serie1} alt="" />
+                        <img src={serie2} alt="" />
+                        <img src={serie3} alt="" />
+                        <img src={serie4} alt="" />
+                        <img src={serie5} alt="" />
+                        <img src={serie6} alt="" />
                     </div>
                 </div>
                 <div className={styles.contenidoPreguntas}>

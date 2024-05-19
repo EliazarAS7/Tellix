@@ -16,21 +16,70 @@ let movies = response.data;
 // let movies1 = response1.data;
 
 const PeliculasSeries = () => {
+
+    let baseUrl = '';
+    let baseUrl2 = '';
+
+    function getCookie(nombre) {
+        const valor = `; ${document.cookie}`;
+        const partes = valor.split(`; ${nombre}=`);
+        if (partes.length === 2) return partes.pop().split(";").shift();
+    }
+
+    const perfilID = getCookie('perfil');
+
+    if (sessionStorage.getItem('tipo') === 'pelicula') {
+        baseUrl = "http://194.164.170.62:5001/api/tellix/peliculas/paged?page=";
+    } else if (sessionStorage.getItem('tipo') === 'serie') {
+        baseUrl = "http://194.164.170.62:5001/api/tellix/series/paged?page=";
+    } else if (sessionStorage.getItem('tipo') === 'lista') {
+        baseUrl = "http://194.164.170.62:5001/api/tellix/perfiles/watchList/films?perfilID=";
+        baseUrl2 = "http://194.164.170.62:5001/api/tellix/perfiles/watchList/series?perfilID=";
+    }
+
+    console.log(baseUrl);
+
     const [showFilm, setShowFilm] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
     const [movies, setMovies] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
 
-    const baseUrl = "http://194.164.170.62:5001/api/tellix/peliculas/paged?page=";
     const size = "&size=21&sort=id,asc";
 
     useEffect(() => {
         const fetchMovies = async () => {
-            const url = `${baseUrl}${currentPage}${size}`;
-            const response = await axios.get(url);
-            setMovies(response.data.content);
-            setTotalPages(response.data.totalPages);
+            if(sessionStorage.getItem('tipo')==='lista'){
+                console.log('1');
+                const url = `${baseUrl}${perfilID}`;
+                const url2 = `${baseUrl2}${perfilID}`;
+                const response = await axios.get(url);
+                const response2 = await axios.get(url2);
+                console.log(response);
+                setMovies(response.data.content);
+                setMovies(movies + response2.data.content);
+                setTotalPages(response.data.totalPages + response2.data.totalPages);
+                console.log(url);
+                console.log(url2);
+            }else if (sessionStorage.getItem('tipo') !== 'pelicula' || sessionStorage.getItem('tipo') !== 'serie') {
+                console.log('2');
+                const url = `${baseUrl}${currentPage}${size}`;
+                const url2 = `${baseUrl2}${currentPage}${size}`;
+                const response = await axios.get(url);
+                const response2 = await axios.get(url2);
+                setMovies(response.data.content);
+                setMovies(movies + response2.data.content);
+                setTotalPages(response.data.totalPages + response2.data.totalPages);
+                console.log(url);
+                console.log(url2);
+            } else {
+                console.log('3');
+                const url = `${baseUrl}${currentPage}${size}`;
+                const response = await axios.get(url);
+                setMovies(response.data.content);
+                setTotalPages(response.data.totalPages);
+                console.log(url);
+            }
         };
 
         fetchMovies();
