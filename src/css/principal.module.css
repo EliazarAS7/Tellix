@@ -2,7 +2,11 @@
   margin: 0 auto;
 }
 .todasPeliculas {
+  width: 100%;
   margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .peliculas h2 {
@@ -10,22 +14,52 @@
   margin-left: 1%;
 }
 
+.peliculas {
+  width: 80%;
+}
+
 .soloTellix {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .soloTellix img {
   cursor: pointer;
   flex: 1 0 auto;
-  margin: 10px;
+  margin: 10px 20px 10px 0;
   /* max-width: 165px;
     max-height: 300px; */
   height: 230px;
   width: 170px;
 }
+.contentCarrusel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.carrusel {
+  overflow: hidden;
+}
+.carouselPrev,
+.carouselNext {
+  /*position: absolute;
+  */ /*top: 50%;
+  */
+  padding: 10px;
+  color: white;
+  background-color: rgba(221, 221, 221, 0.06);
+  border: none;
+  cursor: pointer;
+  height: 230px;
+}
 
+.carouselPrev {
+  left: 10px; /* Posición a la izquierda */
+}
+
+.carouselNext {
+  right: 10px; /* Posición a la derecha */
+}
 /* Estilos para el modal */
 
 .model {
@@ -33,7 +67,10 @@
   z-index: 1;
   left: 50%; /* Centrado horizontalmente */
   top: 50%; /* Centrado verticalmente */
-  transform: translate(-50%, -50%); /* Ajuste para asegurar el centro del modal en el centro de la pantalla */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajuste para asegurar el centro del modal en el centro de la pantalla */
   width: 80%; /* Ajusta el tamaño del modal según prefieras */
   height: 80%; /* Ajusta el tamaño del modal según prefieras */
   background-color: rgba(0, 0, 0, 0.4);
@@ -101,4 +138,13 @@
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  } /* Posición inicial */
+  100% {
+    transform: translateX(-100%);
+  } /* Desplazamiento completo */
 }

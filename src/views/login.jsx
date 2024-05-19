@@ -65,7 +65,7 @@ const Login = () => {
           navigate("/admin");
         } else if (response.data.correo) {
           let strObj = JSON.stringify(response.data);
-          document.cookie = `session=${response.data.id}; path=/; max-age=3600`;
+          document.cookie = `session=${response.data.id}; path=/; max-age=86400`;
           navigate("/perfil");
         } else {
           if (
@@ -90,7 +90,7 @@ const Login = () => {
                   idUsu;
                 const responseSus = await axios.post(url);
                 if (responseSus) {
-                  document.cookie = `session=${idUsu}; path=/; max-age=3600`;
+                  document.cookie = `session=${idUsu}; path=/; max-age=86400`;
                   navigate("/perfil");
                 }
               } catch (error) {

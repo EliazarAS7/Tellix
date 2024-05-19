@@ -59,7 +59,6 @@ const AdministrarPerfil = () => {
     let perfil = await axios.get(url);
     perfil.data.nombre = nombre;
     perfil.data.imagen = imagen;
-    console.log(perfil.data);
 
     let urlPut =
       "http://194.164.170.62:5001/api/tellix/perfiles/" + getCookie("perfil");
