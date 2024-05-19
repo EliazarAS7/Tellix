@@ -115,14 +115,19 @@ const Principal = () => {
     let urlCap = "http://194.164.170.62:5000/api/tellix/capitulos/";
     const responseCap = await axios.get(urlCap);
     const cont = [];
+    console.log(responseCap.data);
     for (let i = 0; i < responseCap.data.length; i++) {
-      if (responseCap.data[i].temporada.id === tempID) {
+      if (
+        responseCap.data[i].temporada.id === sessionStorage.getItem("idTemp")
+      ) {
         cont.push(responseCap.data[i]);
       }
+      setCapitulos(cont);
     }
   };
   const handleOptionChange = async (event) => {
     setSelectedOption(event.target.value);
+    sessionStorage.setItem("idTemp", event.target.value);
     setTempID(event.target.value);
     obtenerCapitulos();
   };
@@ -132,6 +137,7 @@ const Principal = () => {
     if (content.duracion) {
       setShowFilm(true);
     } else {
+      obtenerCapitulos();
       localStorage.setItem("imagen", content.imagen);
       const urlTemp = "http://194.164.170.62:5000/api/tellix/temporadas/";
       const responseTemp = await axios.get(urlTemp);
@@ -145,7 +151,6 @@ const Principal = () => {
           });
         }
       }
-      console.log(cont);
       setTemporadas(cont);
       setTempID(id);
       setShowSerie(true);
@@ -267,7 +272,7 @@ const Principal = () => {
                     </select>
                   </div>
                 </div>
-                {selectedOption && (
+                {true && (
                   <div>
                     {capitulos.map((cap) => (
                       <div>
