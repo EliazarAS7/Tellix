@@ -3,12 +3,12 @@
 # Tabla de contenidos
 
 - [Proyecto Tellix]
-- [Tabla de contenidos](#tabla-de-contenidos)
+- [Tabla de contenidos]
   - [Parte 1: Aplicación Web](#parte-1:-aplicación-web)
       - [Descripción](#descripción)
       - [Diagramas](#diagramas)
-      - [Estructura Gneral]
-  - [Parte 2: API](#parte-2:-api)
+      - [Estructura Gneral](#estructura-general)
+  - [Parte 2: API]
       - [EndPoints de la API](#endpoints-de-la-api)
       - [Requisitos Previos](#requisitos-previo)
 
