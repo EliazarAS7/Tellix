@@ -12,7 +12,7 @@ function getCookie(nombre) {
 }
 
 function createCookiePerfil(id) {
-  document.cookie = `perfil=${id}; path=/; max-age=3600`;
+  document.cookie = `perfil=${id}; path=/; max-age=86400`;
 }
 
 const Perfil = () => {
