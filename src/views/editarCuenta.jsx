@@ -63,16 +63,7 @@ const EditarCuenta = () => {
           if (correoUsuCheck.data !== "" && correo !== correoUsu) {
             setMensaje("El correo introducido ya tiene una cuenta en Tellix");
           } else {
-            if (pass1 === "" && pass2 === "") {
-              usuario.data.nombre = nombre;
-              usuario.data.correo = correo;
-              console.log(usuario.data);
-              let url =
-                "http://194.164.170.62:5001/api/tellix/usuarios/" + idUsuario;
-              let response = await axios.put(url, usuario.data);
-              alert("¡Datos modificados con exito!");
-              navigate("/principal");
-            } else if (pass1 !== "" && pass2 !== "") {
+            if (pass1 !== "" && pass2 !== "") {
               usuario.data.nombre = nombre;
               usuario.data.correo = correo;
               usuario.data.contraseña = pass1;
