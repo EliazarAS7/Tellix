@@ -106,6 +106,7 @@ const Header = () => {
             >
               Peliculas
             </Link>
+            <br />
             <Link
               onClick={(e) => {
                 e.preventDefault();
@@ -116,6 +117,7 @@ const Header = () => {
             >
               Series
             </Link>
+            <br />
             <Link
               className={principal.miLista}
               onClick={(e) => {
@@ -127,6 +129,7 @@ const Header = () => {
             >
               Mi Lista
             </Link>
+            <br />
             <Link onClick={() => setCategoriasAbiertas(!categoriasAbiertas)}>
               Categorías
             </Link>
@@ -158,6 +161,42 @@ const Header = () => {
           <>
             {menuOpen && (
               <div className={principal.menu}>
+                <div className={principal.barraNav2}>
+                  <Link
+                    onClick={(e) => {
+                      e.preventDefault();
+                      sessionStorage.setItem("tipo", "pelicula");
+                      navigate("/PeliculasSeries");
+                      window.location.reload();
+                    }}
+                  >
+                    Peliculas
+                  </Link>
+                  <Link
+                    onClick={(e) => {
+                      e.preventDefault();
+                      sessionStorage.setItem("tipo", "serie");
+                      navigate("/PeliculasSeries");
+                      window.location.reload();
+                    }}
+                  >
+                    Series
+                  </Link>
+                  <Link
+                    className={principal.miLista}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      sessionStorage.setItem("tipo", "lista");
+                      navigate("/PeliculasSeries");
+                      window.location.reload();
+                    }}
+                  >
+                    Mi Lista
+                  </Link>
+                  <Link onClick={() => setCategoriasAbiertas(!categoriasAbiertas)}>
+                    Categorías
+                  </Link>
+                </div>
                 {menuOptions.map((option, index) => (
                   <div
                     key={index}

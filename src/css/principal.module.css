@@ -216,7 +216,8 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 2%;
-  
+  width: 90%;
+  padding-left: 20px;
 }
 
 .select {
@@ -306,7 +307,11 @@
   } /* Desplazamiento completo */
 }
 
- @media (max-width: 1400px) {
+::-webkit-scrollbar {
+  width: 0;
+}
+
+@media (max-width: 1400px) {
   .contenido{
     display: flex;
   }
@@ -337,35 +342,22 @@
     flex-direction: column;
     margin-top: 580px;
     margin-bottom: 30px;
-    /* text-align: center; */
   }
 
   .datos{
     margin-top: 10px;
     align-items: center;
     font-size: 0.7rem;
-    width: 70%;
   }
 
   .reproductor{
-    /* display: flex; */
-    /* align-items: center; */
     text-align: center;
-    /* width: 30%; */
   }
-
-  /* .add{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
 
   .iframe{
     height: 290px;
     width: 270px;
     display: flex;
-    /* text-align: center; */
-    /* margin-left: 55px; */
   }
 
   .iframe2{
@@ -377,6 +369,26 @@
   .iframeBtn{
     height: 400px;
     width: 320px;
+  }
+}
+
+@media (max-width: 1000px) {
+  /* .datosCap{
+    flex-direction: column-reverse;
+    align-items: center;
+  } */
+
+  .contenidoSeries{
+    margin-top: 20%;
+  }
+
+  .datosCapLetter h2{
+    font-size: 1.2rem;
+  }
+
+  .datosCapDatos p{
+    /* display: none; */
+    font-size: 0.65rem;
   }
 }
 

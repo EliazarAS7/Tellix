@@ -229,6 +229,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 2%;
+  width: 90%;
 }
 .select {
   border: none;
@@ -364,7 +365,7 @@
     margin-top: 10px;
     align-items: center;
     font-size: 0.7rem;
-    width: 70%;
+    /* width: 70%; */
   }
 
   .reproductor{
@@ -399,3 +400,24 @@
     width: 320px;
   }
 }
+
+@media (max-width: 1000px) {
+  .contenidoSeries{
+    margin-top: 20%;
+  }
+
+  .datosCapLetter h2{
+    font-size: 1.2rem;
+  }
+
+  .datosCapDatos p{
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  /* .contenidoPopup iframe{
+    width: 900;
+  } */
+}
+
