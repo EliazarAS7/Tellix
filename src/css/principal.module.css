@@ -316,26 +316,26 @@
     display: flex;
   }
 
-  .iframe{
+  .iframe {
     height: 500px;
     width: 400px;
     display: flex;
   }
 
-  .iframe2{
+  .iframe2 {
     height: 50px;
     width: 50px;
     transform: translate(-10%, 390%);
   }
 
-  .iframeBtn{
+  .iframeBtn {
     height: 500px;
     width: 420px;
   }
 }
 
 @media (max-width: 1000px) {
-  .contenido{
+  .contenido {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -344,7 +344,7 @@
     margin-bottom: 30px;
   }
 
-  .datos{
+  .datos {
     margin-top: 10px;
     align-items: center;
     font-size: 0.7rem;
@@ -360,13 +360,13 @@
     display: flex;
   }
 
-  .iframe2{
+  .iframe2 {
     height: 50px;
     width: 50px;
     transform: translate(-50%, 270%);
   }
 
-  .iframeBtn{
+  .iframeBtn {
     height: 400px;
     width: 320px;
   }
