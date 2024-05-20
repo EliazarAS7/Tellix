@@ -1,5 +1,6 @@
 .peliculas {
-  margin-top: 6%;
+  margin-top: 120px;
+  /* margin-bottom: 120px; */
 }
 
 .todasPeliculas {
@@ -114,15 +115,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+ 
 }
 
 .pagination button {
   margin-left: 5px;
   border: none;
-  /* background-color: #fff;
-    color: black; */
   width: 29px;
   height: 20px;
+  margin-bottom: 40px;
 }
 
 /* peliculasSeries.module.css */
@@ -131,14 +132,76 @@
   color: white; /* Para mantener el texto legible */
 }
 
-@media (max-width: 1300px) {
-  
+@media (max-width: 1400px) {
+  .contenido{
+    display: flex;
+  }
+
+  .iframe{
+    height: 500px;
+    width: 400px;
+    display: flex;
+  }
+
+  .iframe2{
+    height: 50px;
+    width: 50px;
+    transform: translate(-10%, 390%);
+  }
+
+  .iframeBtn{
+    height: 500px;
+    width: 420px;
+  }
 }
 
-@media (max-width: 768px) {
-  
-}
+@media (max-width: 1000px) {
+  .contenido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 580px;
+    margin-bottom: 30px;
+    /* text-align: center; */
+  }
 
-@media (max-width: 400px) {
-  
+  .datos{
+    margin-top: 10px;
+    align-items: center;
+    font-size: 0.7rem;
+    width: 70%;
+  }
+
+  .reproductor{
+    /* display: flex; */
+    /* align-items: center; */
+    text-align: center;
+    /* width: 30%; */
+  }
+
+  /* .add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  .iframe{
+    height: 290px;
+    width: 270px;
+    display: flex;
+    /* text-align: center; */
+    /* margin-left: 55px; */
+  }
+
+  .iframe2{
+    height: 50px;
+    width: 50px;
+    transform: translate(-50%, 270%);
+  }
+
+  .iframeBtn{
+    height: 400px;
+    width: 320px;
+  }
 }
