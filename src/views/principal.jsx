@@ -59,6 +59,7 @@ const Principal = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [temporadas, setTemporadas] = useState("");
   const [capitulos, setCapitulos] = useState("");
+  const [btn, setBtn] = useState("add");
   const carouselRefs = useRef(Array(4).fill(null));
 
   const obtenerCapitulos = async () => {
@@ -102,8 +103,8 @@ const Principal = () => {
             ref={carouselRef}
           >
             {items.map((item) => (
-              <div key={"2"} onClick={() => handleImageClick(item)}>
-                <img src={avatar} alt={"2"} />
+              <div key={""} onClick={() => handleImageClick(item)}>
+                <img src={avatar} alt={"nombre"} />
               </div>
             ))}
           </div>
@@ -139,13 +140,19 @@ const Principal = () => {
     setSelectedContent(content);
     if (content.duracion) {
       setShowFilm(true);
-      setSelectedContentView(content);
+      const pelis = localStorage.getItem("peliculas");
+      if (pelis.includes(content.id)) {
+        setBtn("check");
+      } else {
+        setBtn("add");
+      }
     } else {
       obtenerCapitulos();
       localStorage.setItem("imagen", content.imagen);
       const urlTemp = "http://194.164.170.62:5000/api/tellix/temporadas/";
       const responseTemp = await axios.get(urlTemp);
       const cont = [];
+      const serie = localStorage.getItem("series");
       for (let i = 0; i < responseTemp.data.length; i++) {
         if (responseTemp.data[i].serie.id === content.id) {
           cont.push({
@@ -153,7 +160,13 @@ const Principal = () => {
             nombre: responseTemp.data[i].nombre,
           });
         }
+        if (serie.includes(content.id)) {
+          setBtn("check");
+        } else {
+          setBtn("add");
+        }
       }
+
       sessionStorage.setItem("idTemp", cont[0].id);
       setTemporadas(cont);
       setShowSerie(true);
@@ -175,7 +188,7 @@ const Principal = () => {
     }
   };
 
-  const viewContent = () => {
+  const viewContent = (content) => {
     if (showSerie) {
       sessionStorage.setItem("contenido", "serie");
     } else if (showFilm) {
@@ -184,7 +197,7 @@ const Principal = () => {
     setShowSerie(false);
     setShowFilm(false);
     setShowContent(true);
-    setSelectedContentView();
+    setSelectedContentView(content);
   };
 
   useEffect(() => {}, [temporadas]);
@@ -198,6 +211,11 @@ const Principal = () => {
       selectedContent.id;
 
     let response = await axios.post(url);
+    if (btn === "add") {
+      setBtn("check");
+    } else {
+      setBtn("add");
+    }
   };
 
   const changeSerie = async () => {
@@ -209,7 +227,37 @@ const Principal = () => {
       selectedContent.id;
 
     let response = await axios.post(url);
+    if (btn === "add") {
+      setBtn("check");
+    } else {
+      setBtn("add");
+    }
   };
+
+  useEffect(() => {
+    const addContent = async () => {
+      const baseUrl =
+        "http://194.164.170.62:5001/api/tellix/perfiles/watchList/series?perfilID=" +
+        getCookie("perfil");
+      const baseUrl2 =
+        "http://194.164.170.62:5001/api/tellix/perfiles/watchList/films?perfilID=" +
+        getCookie("perfil");
+      let response = await axios.get(baseUrl);
+      let response2 = await axios.get(baseUrl2);
+      const idSeries = [];
+      for (let i = 0; i < response.data.length; i++) {
+        idSeries.push(response.data[i].id);
+      }
+      const idPeliculas = [];
+      for (let i = 0; i < response2.data.length; i++) {
+        idPeliculas.push(response2.data[i].id);
+      }
+      localStorage.setItem("series", idSeries);
+      localStorage.setItem("peliculas", idPeliculas);
+    };
+
+    addContent();
+  }, []);
   return (
     <div className={principal.general}>
       <Header />
@@ -245,7 +293,9 @@ const Principal = () => {
                   <h1>{selectedContent.nombre}</h1>
                   <button
                     className={principal.iframeBtn}
-                    onClick={viewContent}
+                    onClick={() => {
+                      viewContent(selectedContent);
+                    }}
                     value={selectedContent.id}
                   >
                     <img
@@ -264,7 +314,7 @@ const Principal = () => {
                   <p>Duración: {selectedContent.duracion} min.</p>
                   <p>Año: {selectedContent.año}</p>
                   <button className={principal.add} onClick={changeFilm}>
-                    <img src="./icons/add.svg" alt="" />
+                    <img src={`./icons/${btn}.svg`} alt="" />
                   </button>
                 </div>
               </section>
@@ -297,14 +347,19 @@ const Principal = () => {
                       ))}
                     </select>
                     <button className={principal.add} onClick={changeSerie}>
-                      <img src="./icons/add.svg" alt="" />
+                      <img src={`./icons/${btn}.svg`} alt="" />
                     </button>
                   </div>
                 </div>
                 {true && (
                   <div className={principal.capitulos}>
                     {capitulos.map((cap) => (
-                      <button className={principal.linea} onClick={viewContent}>
+                      <button
+                        className={principal.linea}
+                        onClick={() => {
+                          viewContent(cap);
+                        }}
+                      >
                         <div className={principal.datosCap}>
                           {/* <img
                           src={`./img/fotoSerie/${localStorage.getItem(
@@ -337,8 +392,8 @@ const Principal = () => {
             <iframe
               width="960"
               height="615"
-              src={selectedContent.link}
-              title={selectedContent.nombre}
+              src={selectedContentView.link}
+              title={selectedContentView.nombre}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
               referrerPolicy="strict-origin-when-cross-origin"

@@ -157,6 +157,7 @@
   -moz-transform: translate(150%, 230%);
   -ms-transform: translate(150%, 230%);
   -o-transform: translate(150%, 230%);
+  cursor: pointer;
 }
 .iframeBtn {
   width: 450px;

@@ -23,56 +23,163 @@
   margin-left: 5%;
 }
 
-/* estilo para el modals */
+.general {
+  margin: 0 auto;
+  scroll-behavior: smooth;
+}
+
+.peliculas h2 {
+  color: #fff;
+  margin-left: 1%;
+}
+
+.soloTellix {
+  display: flex;
+  width: 100%;
+}
+
+.soloTellix img {
+  cursor: pointer;
+  flex: 1 0 auto;
+  margin: 10px 20px 10px 0;
+  /* max-width: 165px;
+    max-height: 300px; */
+  height: 230px;
+  width: 170px;
+}
+.contentCarrusel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.carrusel {
+  overflow: hidden;
+}
+.carouselPrev,
+.carouselNext {
+  /*position: absolute;
+  */ /*top: 50%;
+  */
+  padding: 10px;
+  color: white;
+  background-color: rgba(221, 221, 221, 0.06);
+  border: none;
+  cursor: pointer;
+  height: 230px;
+}
+
+.carouselPrev {
+  left: 10px; /* Posición a la izquierda */
+}
+
+.carouselNext {
+  right: 10px; /* Posición a la derecha */
+}
+/* Estilos para el modal */
+
 .model {
-  position: fixed;
-  /* Cambiado de absolute a fixed para que ocupe toda la pantalla independientemente de la posición del contenido */
+  position: fixed; /* Cambiado de absolute a fixed para que ocupe toda la pantalla independientemente de la posición del contenido */
   z-index: 1;
-  left: 50%;
-  /* Centrado horizontalmente */
-  top: 50%;
-  /* Centrado verticalmente */
-  transform: translate(-50%, -50%);
-  /* Ajuste para asegurar el centro del modal en el centro de la pantalla */
-  width: 80%;
-  /* Ajusta el tamaño del modal según prefieras */
-  height: 80%;
-  /* Ajusta el tamaño del modal según prefieras */
-  background-color: rgba(0, 0, 0, 0.4);
+  left: 50%; /* Centrado horizontalmente */
+  top: 50%; /* Centrado verticalmente */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajuste para asegurar el centro del modal en el centro de la pantalla */
+  width: 80%; /* Ajusta el tamaño del modal según prefieras */
+  height: 80%; /* Ajusta el tamaño del modal según prefieras */
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  /* Alinea el contenido del modal al centro */
-  overflow: auto;
-  /* Permite el scroll dentro del modal si es necesario */
+  align-items: center; /* Alinea el contenido del modal al centro */
+  overflow: auto; /* Permite el scroll dentro del modal si es necesario */
+}
+.modelSerie {
+  padding-top: 2%;
+  position: fixed; /* Cambiado de absolute a fixed para que ocupe toda la pantalla independientemente de la posición del contenido */
+  z-index: 1;
+  left: 50%; /* Centrado horizontalmente */
+  top: 50%; /* Centrado verticalmente */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajuste para asegurar el centro del modal en el centro de la pantalla */
+  width: 80%; /* Ajusta el tamaño del modal según prefieras */
+  height: 80%; /* Ajusta el tamaño del modal según prefieras */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinea el contenido del modal al centro */
+  overflow: auto; /* Permite el scroll dentro del modal si es necesario */
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Contenedor del fondo */
 .fondoCont {
+  position: fixed; /* Fijo para cubrir toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Ajusta la opacidad según prefieras */
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Previene el scroll de la página */
+}
+.fondoContSerie {
   position: fixed;
-  /* Fijo para cubrir toda la pantalla */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  /* Ajusta la opacidad según prefieras */
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* Previene el scroll de la página */
 }
 
 .contenido {
   display: flex;
   flex-direction: row;
+  margin-left: 2%;
 }
-
+.contenidoSeries {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%;
+}
+.iframe {
+  width: 600px;
+  height: 630px;
+  z-index: 1;
+}
+.iframe2 {
+  position: absolute;
+  transform: translate(150%, 230%);
+  width: 150px;
+  height: 100px;
+  z-index: 2;
+  -webkit-transform: translate(150%, 230%);
+  -moz-transform: translate(150%, 230%);
+  -ms-transform: translate(150%, 230%);
+  -o-transform: translate(150%, 230%);
+  cursor: pointer;
+}
+.iframeBtn {
+  width: 600px;
+  height: 630px;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+}
 .reproductor {
   width: 100%;
   margin: 1%;
@@ -88,11 +195,18 @@
 .datos h3 {
   width: 90%;
 }
-
 .close {
   border: none;
   position: absolute;
-  top: 15%;
+  top: 7%;
+  right: 7%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.closeSeries {
+  border: none;
+  position: absolute;
+  top: 40px;
   right: 7%;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.4);
@@ -110,7 +224,86 @@
   -o-border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.4);
 }
+.selectBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2%;
+}
+.select {
+  border: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 25px;
+}
+.datosCap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+.linea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 20px;
+  border: none;
+}
+.linea::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 1px;
+  background-color: white;
+  margin-top: 10px; /* Espacio entre el div y la línea */
+  margin-bottom: 10px;
+}
 
+.capitulos {
+  position: static;
+  bottom: 0;
+  width: 98%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.datosCap img {
+  max-width: 150px;
+  margin-right: 3%;
+}
+.datosCapLetter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.datosCapDatos {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.datosCapDatos p {
+  text-align: justify;
+}
+
+.contenidoPopup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  margin-top: -51%;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
 .pagination {
   display: flex;
   align-items: center;
@@ -131,6 +324,7 @@
   background-color: red; /* Cambia el color según tus preferencias */
   color: white; /* Para mantener el texto legible */
 }
+
 
 @media (max-width: 1400px) {
   .contenido{
