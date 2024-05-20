@@ -16,12 +16,12 @@
 }
 
 .perfiles {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   margin: 0 auto;
   text-align: center;
 }
+
 .perfiles a {
   text-decoration: none;
   color: white;
@@ -116,9 +116,19 @@
 }
 
 @media (max-width: 768px) {
-  
+  .perfiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
-@media (max-width: 400px) {
-  
+@media (max-width: 768px){
+  .titulo{
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 1.5rem;
+  }
 }
+

@@ -136,14 +136,13 @@
   z-index: 100;
 }
 
-@media (max-width: 1300px) {
-  
-}
-
 @media (max-width: 768px) {
-  
-}
+  .formulario{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 
-@media (max-width: 400px) {
-  
+  .pass button{
+    width: 60px;
+  }
 }

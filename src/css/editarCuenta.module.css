@@ -71,7 +71,25 @@
 }
 
 @media (max-width: 768px) {
-  
+  .formulario{
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
+  .formulario form{
+    padding-bottom: 6%;
+  }
+
+  .botones{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .titulo{
+    font-size: 1.5rem;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
 }
 
 @media (max-width: 400px) {

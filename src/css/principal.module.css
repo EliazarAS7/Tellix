@@ -150,13 +150,19 @@
 }
 
 @media (max-width: 1300px) {
-  
+  .general{
+    margin-top: 9%;
+  }
 }
 
 @media (max-width: 768px) {
-  
+  .general{
+    margin-top: 13%;
+  }
 }
 
-@media (max-width: 400px) {
-  
+@media (max-width: 530px) {
+  .general{
+    margin-top: 22%;
+  }
 }

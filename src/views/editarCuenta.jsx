@@ -144,7 +144,7 @@ const EditarCuenta = () => {
             onChange={handleChangePass2}
           />
           <br />
-          <div>
+          <div className={editarCuenta.botones}>
             <button className={editarCuenta.button} onClick={handleChangeData}>
               Confirmar Cambios
             </button>

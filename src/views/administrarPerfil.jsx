@@ -112,7 +112,7 @@ const AdministrarPerfil = () => {
             onChange={handleChange}
           />
           <br />
-          <div>
+          <div className={administrarPerfil.botones}>
             <button className={administrarPerfil.button} onClick={saveProfile}>
               Guardar
             </button>

@@ -117,7 +117,55 @@
 }
 
 @media (max-width: 768px) {
-  
+  .formulario{
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  .botones{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .titulo{
+    margin-left: 4%;
+    margin-right: 4%;
+    font-size: 1.5rem;
+  }
+
+  .imageGrid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .popup {
+    position: absolute;
+    z-index: 5;
+    backdrop-filter: blur(10px);
+    padding-left: 20px;
+    max-width: 40rem;
+    margin: 0 auto;
+    height: 30rem;
+    width: 23rem;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .formulario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(221, 221, 221, 0.06);
+    max-width: 40rem;
+    margin: 0 auto;
+    height: 44rem;
+    border-radius: 2em;
+    padding-bottom: 2%;
+  }
 }
 
 @media (max-width: 400px) {
