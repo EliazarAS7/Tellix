@@ -111,29 +111,38 @@
   height: 150px;
   aspect-ratio: 1;
 }
+.popUpConf {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 10;
+}
+.popUpConfLetter {
+  color: white;
+}
 
 @media (max-width: 1300px) {
-  
 }
 
 @media (max-width: 768px) {
-  .formulario{
+  .formulario {
     margin-left: 7%;
     margin-right: 7%;
   }
 
-  .botones{
+  .botones {
     display: flex;
     flex-direction: column;
   }
 
-  .titulo{
+  .titulo {
     margin-left: 4%;
     margin-right: 4%;
     font-size: 1.5rem;
   }
 
-  .imageGrid{
+  .imageGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -169,5 +178,4 @@
 }
 
 @media (max-width: 400px) {
-  
 }

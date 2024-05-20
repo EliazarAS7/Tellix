@@ -48,7 +48,6 @@ const AdministrarPerfil = () => {
     const urlDel =
       "http://194.164.170.62:5001/api/tellix/perfiles/" + getCookie("perfil");
     let responseDel = await axios.delete(urlDel);
-    alert("¡Perfil eliminado con exito!");
     navigate("/perfil");
   };
 
@@ -56,14 +55,13 @@ const AdministrarPerfil = () => {
     e.preventDefault();
     let url =
       "http://194.164.170.62:5001/api/tellix/perfiles/" + getCookie("perfil");
-      let perfil = await axios.get(url);
-      console.log(perfil);
+    let perfil = await axios.get(url);
+    console.log(perfil);
     perfil.data.nombre = nombre;
     perfil.data.imagen = imagen;
     let urlPut =
       "http://194.164.170.62:5001/api/tellix/perfiles/" + getCookie("perfil");
     let responsePut = await axios.put(urlPut, perfil.data);
-    alert("¡Perfil modificado con exito!");
     navigate("/principal");
   };
 
@@ -71,6 +69,8 @@ const AdministrarPerfil = () => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [nombre, setNombre] = useState("");
   const [imagen, setImagen] = useState("");
+  const [popupCargando, setPopupCargando] = useState(false);
+  const [mensaje, setMensaje] = useState("");
   useEffect(() => {
     const showProfiles = async () => {
       const urlPerfil =
