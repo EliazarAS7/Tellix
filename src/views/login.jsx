@@ -61,9 +61,7 @@ const Login = () => {
           usuario.pass;
         const response = await axios.get(url);
         console.log(response);
-        if (response.data.admin) {
-          navigate("/admin");
-        } else if (response.data.correo) {
+        if (response.data.correo) {
           let strObj = JSON.stringify(response.data);
           document.cookie = `session=${response.data.id}; path=/; max-age=86400`;
           navigate("/perfil");
