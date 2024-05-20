@@ -16,9 +16,8 @@
 }
 
 .perfiles {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   margin: 0 auto;
   text-align: center;
 }
@@ -112,13 +111,10 @@
 }
 
 @media (max-width: 1300px) {
-  
 }
 
 @media (max-width: 768px) {
-  
 }
 
 @media (max-width: 400px) {
-  
 }
