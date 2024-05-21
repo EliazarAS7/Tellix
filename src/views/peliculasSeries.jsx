@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 import avatar from "../img/fotoPeliculas/Avatar.jpg";
 
 import style from "../css/peliculasSeries.module.css";
@@ -257,7 +257,13 @@ const PeliculasSeries = () => {
 
     addContent();
   }, []);
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    const cookieSesion = getCookie("session");
+    if (!cookieSesion) {
+      navigate("/login");
+    }
+  }, [navigate]);
   return (
     <div>
       <Header />
@@ -375,8 +381,6 @@ const PeliculasSeries = () => {
               <img src="./icons/close.svg" alt="" />
             </button>
             <iframe
-              width="960"
-              height="615"
               src={selectedContentView.link}
               title={selectedContentView.nombre}
               frameBorder="0"

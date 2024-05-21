@@ -258,6 +258,14 @@ const Principal = () => {
 
     addContent();
   }, []);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const cookieSesion = getCookie("session");
+    if (!cookieSesion) {
+      navigate("/login");
+    }
+  }, [navigate]);
   return (
     <div className={principal.general}>
       <Header />
@@ -390,8 +398,8 @@ const Principal = () => {
               <img src="./icons/close.svg" alt="" />
             </button>
             <iframe
-              width="960"
-              height="615"
+              // width="960"
+              // height="615"
               src={selectedContentView.link}
               title={selectedContentView.nombre}
               frameBorder="0"

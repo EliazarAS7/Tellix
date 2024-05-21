@@ -289,11 +289,16 @@
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  margin-top: -5%;
+  top: 0;
   display: grid;
   justify-items: center;
   align-content: center;
 }
+.contenidoPopup iframe {
+  width: 960px;
+  height: 650px;
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -310,9 +315,14 @@
 ::-webkit-scrollbar {
   width: 0;
 }
-
+@media (min-width: 2000px) {
+  .contenidoPopup iframe {
+    width: 1500px;
+    height: 900px;
+  }
+}
 @media (max-width: 1400px) {
-  .contenido{
+  .contenido {
     display: flex;
   }
 
@@ -350,11 +360,11 @@
     font-size: 0.7rem;
   }
 
-  .reproductor{
+  .reproductor {
     text-align: center;
   }
 
-  .iframe{
+  .iframe {
     height: 290px;
     width: 270px;
     display: flex;
@@ -370,25 +380,32 @@
     height: 400px;
     width: 320px;
   }
-}
-
-@media (max-width: 1000px) {
-  /* .datosCap{
-    flex-direction: column-reverse;
-    align-items: center;
-  } */
-
-  .contenidoSeries{
+  .contenidoSeries {
     margin-top: 20%;
   }
 
-  .datosCapLetter h2{
+  .datosCapLetter h2 {
     font-size: 1.2rem;
   }
 
-  .datosCapDatos p{
+  .datosCapDatos p {
     /* display: none; */
     font-size: 0.65rem;
   }
+  .contenidoPopup iframe {
+    width: 660px;
+    height: 400px;
+  }
 }
-
+@media (max-width: 660px) {
+  .contenidoPopup iframe {
+    width: 360px;
+    height: 190px;
+  }
+}
+@media (max-width: 400px) {
+  .contenidoPopup iframe {
+    width: 260px;
+    height: 100px;
+  }
+}

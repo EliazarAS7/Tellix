@@ -88,6 +88,14 @@ const AdministrarPerfil = () => {
 
     showProfiles();
   }, []);
+
+  useEffect(() => {
+    const cookieSesion = getCookie("session");
+    if (!cookieSesion) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
   return (
     <div>
       <div className={administrarPerfil.logo}>

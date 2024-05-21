@@ -92,6 +92,14 @@ const EditarCuenta = () => {
 
     showData();
   }, []);
+
+  useEffect(() => {
+    const cookieSesion = getCookie("session");
+    if (!cookieSesion) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
   return (
     <div>
       <div className={editarCuenta.logo}>

@@ -60,6 +60,12 @@ const Perfil = () => {
     showProfiles();
   }, []);
 
+  useEffect(() => {
+    const cookieSesion = getCookie("session");
+    if (!cookieSesion) {
+      navigate("/login");
+    }
+  }, [navigate]);
   return (
     <div className={perfil.principal}>
       <h1 className={perfil.titulo}>¿Quién eres? Elige tu perfil</h1>
