@@ -32,7 +32,7 @@ const EditarCuenta = () => {
   const handleChangeSuscription = async () => {
     let idUsuario = getCookie("session");
     let url =
-      "http://194.164.170.62:5001/api/tellix/usuarios/suscription/" + idUsuario;
+      "http://194.164.169.54:5000/api/tellix/usuarios/suscription/" + idUsuario;
     let response = await axios.post(url);
     document.cookie =
       "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -43,12 +43,12 @@ const EditarCuenta = () => {
   const handleChangeData = async (e) => {
     e.preventDefault();
     let idUsuario = getCookie("session");
-    let urlUsu = "http://194.164.170.62:5001/api/tellix/usuarios/" + idUsuario;
+    let urlUsu = "http://194.164.169.54:5000/api/tellix/usuarios/" + idUsuario;
     let usuario = await axios.get(urlUsu);
     let correoUsu = usuario.data.correo;
 
     let urlCorreo =
-      "http://194.164.170.62:5001/api/tellix/usuarios/mail/" + correo;
+      "http://194.164.169.54:5000/api/tellix/usuarios/mail/" + correo;
     let correoUsuCheck = await axios.get(urlCorreo);
 
     if (pass1 !== pass2) {
@@ -69,7 +69,7 @@ const EditarCuenta = () => {
               usuario.data.contraseña = pass1;
               console.log(usuario.data);
               let url =
-                "http://194.164.170.62:5001/api/tellix/usuarios/" + idUsuario;
+                "http://194.164.169.54:5000/api/tellix/usuarios/" + idUsuario;
               let response = await axios.put(url, usuario.data);
               setMensaje("¡Datos modificados con exito!");
               navigate("/principal");
@@ -84,7 +84,7 @@ const EditarCuenta = () => {
   useEffect(() => {
     const showData = async () => {
       let idUsuario = getCookie("session");
-      let url = "http://194.164.170.62:5001/api/tellix/usuarios/" + idUsuario;
+      let url = "http://194.164.169.54:5000/api/tellix/usuarios/" + idUsuario;
       let response = await axios.get(url);
       setNombre(response.data.nombre);
       setCorreo(response.data.correo);
@@ -129,7 +129,7 @@ const EditarCuenta = () => {
           <br />
           <input
             className={editarCuenta.input}
-            type="text"
+            type="password"
             value={pass1}
             placeholder="Contraseña"
             onChange={handleChangePass1}
@@ -137,7 +137,7 @@ const EditarCuenta = () => {
           <br />
           <input
             className={editarCuenta.input}
-            type="text"
+            type="password"
             value={pass2}
             placeholder="Repetir contraseña"
             onChange={handleChangePass2}

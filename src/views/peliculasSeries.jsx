@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import avatar from "../img/fotoPeliculas/Avatar.jpg";
 
 import style from "../css/peliculasSeries.module.css";
 
@@ -33,20 +32,20 @@ const PeliculasSeries = () => {
   }
 
   if (sessionStorage.getItem("tipo") === "pelicula") {
-    baseUrl = "http://194.164.170.62:5001/api/tellix/peliculas/paged?page=";
+    baseUrl = "http://194.164.169.54:5000/api/tellix/peliculas/paged?page=";
   } else if (sessionStorage.getItem("tipo") === "serie") {
-    baseUrl = "http://194.164.170.62:5001/api/tellix/series/paged?page=";
+    baseUrl = "http://194.164.169.54:5000/api/tellix/series/paged?page=";
   } else if (sessionStorage.getItem("tipo") === "lista") {
     baseUrl =
-      "http://194.164.170.62:5001/api/tellix/perfiles/watchList/films?perfilID=";
+      "http://194.164.169.54:5000/api/tellix/perfiles/watchList/films?perfilID=";
     baseUrl2 =
-      "http://194.164.170.62:5001/api/tellix/perfiles/watchList/series?perfilID=";
+      "http://194.164.169.54:5000/api/tellix/perfiles/watchList/series?perfilID=";
   } else {
     baseUrl =
-      "http://194.164.170.62:5001/api/tellix/peliculas/searchCat/paged?catID=" +
+      "http://194.164.169.54:5000/api/tellix/peliculas/searchCat/paged?catID=" +
       sessionStorage.getItem("tipo");
     baseUrl2 =
-      "http://194.164.170.62:5001/api/tellix/series/searchCat/paged?catID=" +
+      "http://194.164.169.54:5000/api/tellix/series/searchCat/paged?catID=" +
       sessionStorage.getItem("tipo");
   }
 
@@ -101,7 +100,6 @@ const PeliculasSeries = () => {
         const response = await axios.get(url);
         setMovies(response.data.content);
         setTotalPages(response.data.totalPages);
-        console.log(url);
       }
     };
 
@@ -204,7 +202,7 @@ const PeliculasSeries = () => {
   const changeFilm = async () => {
     let idPerfil = getCookie("perfil");
     let url =
-      "http://194.164.170.62:5001/api/tellix/perfiles/watchList/change/film?perfilID=" +
+      "http://194.164.169.54:5000/api/tellix/perfiles/watchList/change/film?perfilID=" +
       idPerfil +
       "&peliculaID=" +
       selectedContent.id;
@@ -220,7 +218,7 @@ const PeliculasSeries = () => {
   const changeSerie = async () => {
     let idPerfil = getCookie("perfil");
     let url =
-      "http://194.164.170.62:5001/api/tellix/perfiles/watchList/change/serie?perfilID=" +
+      "http://194.164.169.54:5000/api/tellix/perfiles/watchList/change/serie?perfilID=" +
       idPerfil +
       "&serieID=" +
       selectedContent.id;
@@ -236,10 +234,10 @@ const PeliculasSeries = () => {
   useEffect(() => {
     const addContent = async () => {
       const baseUrl =
-        "http://194.164.170.62:5001/api/tellix/perfiles/watchList/series?perfilID=" +
+        "http://194.164.169.54:5000/api/tellix/perfiles/watchList/series?perfilID=" +
         getCookie("perfil");
       const baseUrl2 =
-        "http://194.164.170.62:5001/api/tellix/perfiles/watchList/films?perfilID=" +
+        "http://194.164.169.54:5000/api/tellix/perfiles/watchList/films?perfilID=" +
         getCookie("perfil");
       let response = await axios.get(baseUrl);
       let response2 = await axios.get(baseUrl2);
@@ -272,7 +270,7 @@ const PeliculasSeries = () => {
         <div className={style.todasPeliculas}>
           {movies.map((movie) => (
             <div key={movie.title} onClick={() => handleImageClick(movie)}>
-              <img src={avatar} alt={movie.nombre} />
+              <img src={movie.link} alt={movie.nombre} />
             </div>
           ))}
         </div>
@@ -352,13 +350,11 @@ const PeliculasSeries = () => {
                         }}
                       >
                         <div className={style.datosCap}>
-                          {/* <img
-                          src={`./img/fotoSerie/${localStorage.getItem(
-                            "imagen"
-                          )}.png`}
-                        ></img> */}
-
-                          <img src={`./img/fotoSeries/Dark.jpeg`}></img>
+                          <img
+                            src={`./img/fotoSerie/${localStorage.getItem(
+                              "imagen"
+                            )}.png`}
+                          ></img>
                           <div className={style.datosCapLetter}>
                             <h2>{cap.nombre}</h2>
                             <div className={style.datosCapDatos}>
