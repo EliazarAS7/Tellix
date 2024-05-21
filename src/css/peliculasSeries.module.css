@@ -294,6 +294,7 @@
 
 .contenidoPopup {
   position: fixed;
+  top: 0;
   width: 100%;
   height: 100%;
   top: 0;
@@ -320,7 +321,10 @@
   height: 20px;
   margin-bottom: 40px;
 }
-
+.contenidoPopup iframe {
+  width: 960px;
+  height: 650px;
+}
 /* peliculasSeries.module.css */
 .paginaActual {
   background-color: red; /* Cambia el color según tus preferencias */
@@ -329,7 +333,12 @@
 ::-webkit-scrollbar {
   width: 0;
 }
-
+@media (min-width: 2000px) {
+  .contenidoPopup iframe {
+    width: 1500px;
+    height: 900px;
+  }
+}
 @media (max-width: 1400px) {
   .contenido {
     display: flex;
@@ -402,19 +411,27 @@
     height: 400px;
     width: 320px;
   }
-}
 
-@media (max-width: 1000px) {
-  .contenidoSeries{
+  .contenidoSeries {
     margin-top: 20%;
   }
 
-  .datosCapLetter h2{
+  .datosCapLetter h2 {
     font-size: 1.2rem;
   }
 
-  .datosCapDatos p{
+  .datosCapDatos p {
     font-size: 0.65rem;
+  }
+  .contenidoPopup iframe {
+    width: 660px;
+    height: 400px;
+  }
+}
+@media (max-width: 660px) {
+  .contenidoPopup iframe {
+    width: 360px;
+    height: 190px;
   }
 }
 
@@ -422,5 +439,8 @@
   .todasPeliculas img {
     width: 130px;
   }
+  .contenidoPopup iframe {
+    width: 260px;
+    height: 100px;
+  }
 }
-
