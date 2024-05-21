@@ -5,10 +5,21 @@
 }
 .todasPeliculas {
   width: 100%;
-  margin-top: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.searchContent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 99%;
+}
+.searchContent div {
+  margin-right: 10px;
 }
 
 .peliculas h2 {
@@ -297,6 +308,26 @@
 .contenidoPopup iframe {
   width: 960px;
   height: 650px;
+}
+.search {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 20px;
+}
+.searchSVG {
+  display: flex;
+  flex-direction: row;
+}
+.searchSVG img {
+  margin-right: 15px;
+}
+.inputSearch {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  padding: 10px 15px;
 }
 
 @keyframes scroll {

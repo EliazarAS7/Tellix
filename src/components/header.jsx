@@ -14,7 +14,7 @@ function getCookie(nombre) {
 }
 
 // Para coger los generos de las peliculas
-let urlGenero = "http://194.164.170.62:5001/api/tellix/categorias/";
+let urlGenero = "http://194.164.169.54:5000/api/tellix/categorias/";
 let responseGenero = await axios.get(urlGenero);
 const generos = responseGenero.data;
 console.log(generos);
@@ -42,7 +42,7 @@ const Header = () => {
 
   const checkProfile = async () => {
     const urlPerfil =
-      "http://194.164.170.62:5001/api/tellix/perfiles/" + getCookie("perfil");
+      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
     let response = await axios.get(urlPerfil);
     if (response.data.imagen === "") {
       setFotoPerfil("./img/fotoPerfil/foto0.png");
@@ -193,7 +193,9 @@ const Header = () => {
                   >
                     Mi Lista
                   </Link>
-                  <Link onClick={() => setCategoriasAbiertas(!categoriasAbiertas)}>
+                  <Link
+                    onClick={() => setCategoriasAbiertas(!categoriasAbiertas)}
+                  >
                     Categorías
                   </Link>
                 </div>
