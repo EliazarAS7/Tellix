@@ -323,6 +323,10 @@
 .searchSVG img {
   margin-right: 15px;
 }
+.searchImg {
+  height: 230px;
+  width: 170px;
+}
 .inputSearch {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;

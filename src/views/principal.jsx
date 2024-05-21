@@ -12,35 +12,38 @@ import principal from "../css/principal.module.css";
 import Header from "../components/header";
 
 // Para que sea la API quien da peliculas y series
-let url3 =
-  "http://194.164.169.54:5000/api/tellix/peliculas/" +
-  "paged?page=3&size=10&sort=id,asc";
-let response3 = await axios.get(url3);
-const movies2 = response3.data.content;
-
 let url = "http://194.164.169.54:5000/api/tellix/peliculas/";
 let response = await axios.get(url);
 const movies = response.data;
+const movies3 = [];
+const movies4 = [];
+const series3 = [];
+console.log(movies[0]);
+console.log(movies[0].categorias[0]);
+console.log(movies[0].categorias[0].id);
+for (let i = 0; i < movies.length; i++) {
+  for (let j = 0; j < movies[i].categorias.length; j++) {
+    if (movies[i].categorias[j].id == 1) {
+      movies3.push(movies[i]);
+    } else if (movies[i].categorias[j].id == 2) {
+      movies4.push(movies[i]);
+    } else if (movies[i].categorias[j].id == 11) {
+      series3.push(movies[i]);
+    }
+  }
+}
 
 let url2 = "http://194.164.169.54:5000/api/tellix/series/";
 let response2 = await axios.get(url2);
 const series = response2.data;
-
-let url4 = "http://194.164.170.62:5001/api/tellix/peliculas/searchCat?catID=1";
-let response4 = await axios.get(url4);
-const movies3 = response4.data;
-
-let url5 = "http://194.164.170.62:5001/api/tellix/series/searchCat?catID=7";
-let response5 = await axios.get(url5);
-const series2 = response5.data;
-
-let url6 = "http://194.164.170.62:5001/api/tellix/peliculas/searchCat?catID=2";
-let response6 = await axios.get(url6);
-const movies4 = response6.data;
-
-let url7 = "http://194.164.170.62:5001/api/tellix/peliculas/searchCat?catID=11";
-let response7 = await axios.get(url7);
-const series3 = response7.data;
+const series2 = [];
+for (let i = 0; i < series.length; i++) {
+  for (let j = 0; j < series[i].categorias.length; j++) {
+    if (series[i].categorias[j].id == 6) {
+      series2.push(series[i]);
+    }
+  }
+}
 
 let contenido = [];
 for (let i = 0; i < series.length; i++) {
@@ -86,7 +89,7 @@ const Principal = () => {
   const [carrousel, setCarrousel] = useState(true);
   const carouselRefs = useRef(Array(8).fill(null));
   const [content, setContent] = useState([]);
-  console.log(movies3);
+
   const changeSearch = () => {
     if (search) {
       setSearch(false);
@@ -103,22 +106,18 @@ const Principal = () => {
     let nom = event.target.value;
     setNombre(nom);
     setSearchContent(true);
-
-    let url1 =
-      "http://194.164.170.62:5001/api/tellix/peliculas/search?name=" + nom;
-    let url2 =
-      "http://194.164.170.62:5001/api/tellix/series/search?name=" + nom;
-
-    let response1 = await axios.get(url1);
-    let response2 = await axios.get(url2);
     const con = [];
 
-    for (let i = 0; i < response1.data.length; i++) {
-      con.push(response1.data[i]);
+    for (let i = 0; i < movies.length; i++) {
+      if (movies[i].nombre.toLowerCase().includes(nom.toLowerCase())) {
+        con.push(movies[i]);
+      }
     }
 
-    for (let i = 0; i < response2.data.length; i++) {
-      con.push(response2.data[i]);
+    for (let i = 0; i < series.length; i++) {
+      if (series[i].nombre.toLowerCase().includes(nom.toLowerCase())) {
+        con.push(series[i]);
+      }
     }
 
     for (let i = con.length - 1; i > 0; i--) {
@@ -357,7 +356,11 @@ const Principal = () => {
           <div className={principal.searchContent}>
             {content.map((cont) => (
               <div key={""} onClick={() => handleImageClick(cont)}>
-                <img src={"./img/foto" + cont.imagen} alt={""} />
+                <img
+                  src={"./img/foto" + cont.imagen}
+                  alt={""}
+                  className={principal.searchImg}
+                />
               </div>
             ))}
           </div>
@@ -377,7 +380,7 @@ const Principal = () => {
 
           <div className={principal.peliculas}>
             <h2>Top 10 Mejores Peliculas</h2>
-            <Carousel items={movies2} currentIndex={currentIndices[2]} />
+            <Carousel items={movies} currentIndex={currentIndices[2]} />
           </div>
 
           <div className={principal.peliculas}>
