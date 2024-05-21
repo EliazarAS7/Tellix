@@ -175,7 +175,7 @@ const Principal = () => {
           >
             {items.map((item) => (
               <div key={""} onClick={() => handleImageClick(item)}>
-                <img src={item.imagen} alt={"Contenido"} />
+                <img src={"./img/foto" + item.imagen} alt={"Contenido"} />
               </div>
             ))}
           </div>
@@ -357,7 +357,7 @@ const Principal = () => {
           <div className={principal.searchContent}>
             {content.map((cont) => (
               <div key={""} onClick={() => handleImageClick(cont)}>
-                <img src={cont.imagen} alt={""} />
+                <img src={"./img/foto" + cont.imagen} alt={""} />
               </div>
             ))}
           </div>
@@ -428,7 +428,7 @@ const Principal = () => {
                     className={principal.iframe2}
                   ></img>
                   <img
-                    src={selectedContent.imagen}
+                    src={"./img/foto" + selectedContent.imagen}
                     className={principal.iframe}
                   ></img>
                 </button>
@@ -487,7 +487,7 @@ const Principal = () => {
                     >
                       <div className={principal.datosCap}>
                         <img
-                          src={`./img/fotoSerie/${localStorage.getItem(
+                          src={`./img/foto${localStorage.getItem(
                             "imagen"
                           )}.png`}
                         ></img>

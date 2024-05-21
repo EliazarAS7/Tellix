@@ -270,7 +270,7 @@ const PeliculasSeries = () => {
         <div className={style.todasPeliculas}>
           {movies.map((movie) => (
             <div key={movie.title} onClick={() => handleImageClick(movie)}>
-              <img src={movie.link} alt={movie.nombre} />
+              <img src={"./img/foto" + movie.imagen} alt={movie.nombre} />
             </div>
           ))}
         </div>
@@ -292,7 +292,7 @@ const PeliculasSeries = () => {
                   >
                     <img src="./icons/play.png" className={style.iframe2}></img>
                     <img
-                      src="./img/fotoPeliculas/Avatar.jpg"
+                      src={"./img/foto" + selectedContent.imagen}
                       className={style.iframe}
                     ></img>
                   </button>
@@ -351,7 +351,7 @@ const PeliculasSeries = () => {
                       >
                         <div className={style.datosCap}>
                           <img
-                            src={`./img/fotoSerie/${localStorage.getItem(
+                            src={`./img/foto${localStorage.getItem(
                               "imagen"
                             )}.png`}
                           ></img>
