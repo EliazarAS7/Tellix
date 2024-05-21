@@ -37,17 +37,17 @@ const Preload = () => {
     {
       pregunta: "¿Que es Tellix?",
       respuesta:
-        "HBO Max es una experiencia de streaming espectacular que te trae las mejores historias de Warner Bros., HBO, Max, DC, Cartoon Network y mucho más, juntos por primera vez.",
+        "tellix Max es una experiencia de streaming espectacular que te trae las mejores historias de Warner Bros., tellix, Max, DC, Cartoon Network y mucho más, juntos por primera vez.",
     },
     {
-      pregunta: "¿HBO Max es adecuado para toda la familia?",
+      pregunta: "¿tellix Max es adecuado para toda la familia?",
       respuesta:
         "Con los perfiles de los niños y los controles parentales personalizados, las familias pueden reír y aprender con personajes como Bugs Bunny, Peppa Pig, Harry Potter y más.",
     },
     {
-      pregunta: "¿Cuánto cuesta HBO Max?",
+      pregunta: "¿Cuánto cuesta tellix Max?",
       respuesta:
-        "HBO Max tiene un precio mensual de 9,99 €. Puedes ahorrar un 41 % si pagas el precio anual de 69,99 € por adelantado.",
+        "tellix Max tiene un precio mensual de 9,99 €. Puedes ahorrar un 41 % si pagas el precio anual de 69,99 € por adelantado.",
     },
     {
       pregunta: "¿Puedo modificar o cancelar mi suscripción?",
@@ -55,14 +55,14 @@ const Preload = () => {
         "¡Sí! Puedes pasar de la suscripción mensual a la anual y viceversa. También puedes cancelar tu suscripción en cualquier momento.",
     },
     {
-      pregunta: "¿En qué dispositivos puedo reproducir HBO Max?",
+      pregunta: "¿En qué dispositivos puedo reproducir tellix Max?",
       respuesta:
-        "Puedes reproducir HBO Max en iPhone y iPad, móviles y tablets Android, Apple TV, Android TV, Chromecast, Samsung TV, LG, Chrome OS, MacOS, Windows PC, PS5, PS4, Xbox Series X|S, y Xbox One. Y más dispositivos en el futuro.",
+        "Puedes reproducir tellix Max en iPhone y iPad, móviles y tablets Android, Apple TV, Android TV, Chromecast, Samsung TV, LG, Chrome OS, MacOS, Windows PC, PS5, PS4, Xbox Series X|S, y Xbox One. Y más dispositivos en el futuro.",
     },
     {
-      pregunta: "¿Cómo inicio sesión en HBO Max?",
+      pregunta: "¿Cómo inicio sesión en tellix Max?",
       respuesta:
-        "Si te has suscrito a través de la app de HBO Max o HBOMax.com, puedes iniciar sesión con tu email y contraseña.",
+        "Si te has suscrito a través de la app de tellix Max o tellixMax.com, puedes iniciar sesión con tu email y contraseña.",
     },
     // Puedes agregar más preguntas aquí
   ];
