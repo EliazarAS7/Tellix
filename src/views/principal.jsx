@@ -53,9 +53,9 @@ for (let i = contenido.length - 1; i > 0; i--) {
 }
 
 let contenido2 = [];
-for (let i = 5; i < 17; i++) {
-  contenido2.push(movies[i]);
-  contenido2.push(series[i + 30]);
+for (let i = 3; i < 17; i++) {
+  contenido2.push(movies[i + 30]);
+  contenido2.push(series[i]);
 }
 
 for (let i = contenido2.length - 1; i > 0; i--) {
@@ -86,7 +86,7 @@ const Principal = () => {
   const [carrousel, setCarrousel] = useState(true);
   const carouselRefs = useRef(Array(8).fill(null));
   const [content, setContent] = useState([]);
-
+  console.log(movies3);
   const changeSearch = () => {
     if (search) {
       setSearch(false);
@@ -174,8 +174,8 @@ const Principal = () => {
             ref={carouselRef}
           >
             {items.map((item) => (
-              <div key={""} onClick={() => handleImageClick(item)}>
-                <img src={"./img/foto" + item.imagen} alt={"Contenido"} />
+              <div key={item.id} onClick={() => handleImageClick(item)}>
+                <img src={"./img/foto" + item.imagen} alt={item.nombre} />
               </div>
             ))}
           </div>
