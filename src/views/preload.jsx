@@ -21,7 +21,7 @@ import mulan from "../img/fotoPeliculas/mulan.jpg";
 import fotoOuter from "../img/fotoPeliculas/outerBanks-removebg-preview.png";
 
 import serie1 from "../img/fotoSeries/Dark.jpeg";
-import serie2 from "../img/fotoSeries/La Maldicion de Hill House.webp";
+import serie2 from "../img/fotoSeries/La Maldicion de Hill House.png";
 import serie3 from "../img/fotoSeries/One Piece.jpeg";
 import serie4 from "../img/fotoSeries/Black Mirror.jpeg";
 import serie5 from "../img/fotoSeries/La Casa de Papel.jpeg";

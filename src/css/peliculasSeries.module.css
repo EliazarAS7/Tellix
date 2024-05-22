@@ -89,7 +89,6 @@
   width: 80%; /* Ajusta el tamaño del modal según prefieras */
   height: 80%; /* Ajusta el tamaño del modal según prefieras */
   background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
   color: white;
   display: flex;
   flex-direction: column;

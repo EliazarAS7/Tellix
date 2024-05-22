@@ -19,7 +19,8 @@ const PeliculasSeries = () => {
   const [selectedContentView, setSelectedContentView] = useState(null); // Array de estados para cada carrusel
   const [selectedOption, setSelectedOption] = useState("");
   const [temporadas, setTemporadas] = useState("");
-  const [capitulos, setCapitulos] = useState("");
+  const [showCaps, setShowCaps] = useState(false);
+  let [capitulos, setCapitulos] = useState("");
   const [btn, setBtn] = useState("add");
 
   let baseUrl = "";
@@ -107,7 +108,7 @@ const PeliculasSeries = () => {
   }, [currentPage]);
 
   const obtenerCapitulos = async () => {
-    let urlCap = "http://194.164.170.62:5000/api/tellix/capitulos/";
+    let urlCap = "http://194.164.169.54:5000/api/tellix/capitulos/";
     const responseCap = await axios.get(urlCap);
     const cont = [];
     for (let i = 0; i < responseCap.data.length; i++) {
@@ -116,8 +117,14 @@ const PeliculasSeries = () => {
       ) {
         cont.push(responseCap.data[i]);
       }
-      setCapitulos(cont);
     }
+    setCapitulos(cont);
+    capitulos = cont;
+    asignarContenido(cont);
+    setShowCaps(true);
+  };
+  const asignarContenido = (con) => {
+    setCapitulos(con);
   };
 
   const handlePageClick = (page) => {
@@ -146,7 +153,7 @@ const PeliculasSeries = () => {
     } else {
       obtenerCapitulos();
       localStorage.setItem("imagen", content.imagen);
-      const urlTemp = "http://194.164.170.62:5000/api/tellix/temporadas/";
+      const urlTemp = "http://194.164.169.54:5000/api/tellix/temporadas/";
       const responseTemp = await axios.get(urlTemp);
       const cont = [];
       const serie = localStorage.getItem("series");
@@ -340,7 +347,7 @@ const PeliculasSeries = () => {
                     </button>
                   </div>
                 </div>
-                {true && (
+                {showCaps && (
                   <div className={style.capitulos}>
                     {capitulos.map((cap) => (
                       <button
@@ -351,9 +358,7 @@ const PeliculasSeries = () => {
                       >
                         <div className={style.datosCap}>
                           <img
-                            src={`./img/foto${localStorage.getItem(
-                              "imagen"
-                            )}.png`}
+                            src={`./img/foto${localStorage.getItem("imagen")}`}
                           ></img>
                           <div className={style.datosCapLetter}>
                             <h2>{cap.nombre}</h2>

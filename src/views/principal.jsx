@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import principal from "../css/principal.module.css";
 
 import Header from "../components/header";
-
 // Para que sea la API quien da peliculas y series
 let url = "http://194.164.169.54:5000/api/tellix/peliculas/";
 let response = await axios.get(url);
@@ -89,6 +88,7 @@ const Principal = () => {
   const [carrousel, setCarrousel] = useState(true);
   const carouselRefs = useRef(Array(8).fill(null));
   const [content, setContent] = useState([]);
+  const [showCaps, setShowCaps] = useState(false);
 
   const changeSearch = () => {
     if (search) {
@@ -133,7 +133,7 @@ const Principal = () => {
     setContent(con);
   };
   const obtenerCapitulos = async () => {
-    let urlCap = "http://194.164.170.62:5000/api/tellix/capitulos/";
+    let urlCap = "http://194.164.169.54:5000/api/tellix/capitulos/";
     const responseCap = await axios.get(urlCap);
     const cont = [];
     for (let i = 0; i < responseCap.data.length; i++) {
@@ -142,8 +142,9 @@ const Principal = () => {
       ) {
         cont.push(responseCap.data[i]);
       }
-      setCapitulos(cont);
     }
+    setCapitulos(cont);
+    setShowCaps(true);
   };
 
   function Carousel({ items }) {
@@ -219,10 +220,11 @@ const Principal = () => {
     } else {
       obtenerCapitulos();
       localStorage.setItem("imagen", content.imagen);
-      const urlTemp = "http://194.164.170.62:5000/api/tellix/temporadas/";
+      const urlTemp = "http://194.164.169.54:5000/api/tellix/temporadas/";
       const responseTemp = await axios.get(urlTemp);
       const cont = [];
       const serie = localStorage.getItem("series");
+
       for (let i = 0; i < responseTemp.data.length; i++) {
         if (responseTemp.data[i].serie.id === content.id) {
           cont.push({
@@ -230,11 +232,12 @@ const Principal = () => {
             nombre: responseTemp.data[i].nombre,
           });
         }
-        if (serie.includes(content.id)) {
-          setBtn("check");
-        } else {
-          setBtn("add");
-        }
+      }
+
+      if (serie.includes(content.id)) {
+        setBtn("check");
+      } else {
+        setBtn("add");
       }
 
       sessionStorage.setItem("idTemp", cont[0].id);
@@ -479,7 +482,7 @@ const Principal = () => {
                   </button>
                 </div>
               </div>
-              {true && (
+              {showCaps && (
                 <div className={principal.capitulos}>
                   {capitulos.map((cap) => (
                     <button
@@ -490,9 +493,7 @@ const Principal = () => {
                     >
                       <div className={principal.datosCap}>
                         <img
-                          src={`./img/foto${localStorage.getItem(
-                            "imagen"
-                          )}.png`}
+                          src={`./img/foto${localStorage.getItem("imagen")}`}
                         ></img>
                         <div className={principal.datosCapLetter}>
                           <h2>{cap.nombre}</h2>
