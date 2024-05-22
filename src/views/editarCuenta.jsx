@@ -29,7 +29,8 @@ const EditarCuenta = () => {
     setPass2(event.target.value); // Actualiza el estado con el nuevo valor
   };
 
-  const handleChangeSuscription = async () => {
+  const handleChangeSuscription = async (e) => {
+    e.preventDefault();
     let idUsuario = getCookie("session");
     let url =
       "http://194.164.169.54:5000/api/tellix/usuarios/suscription/" + idUsuario;
@@ -50,9 +51,8 @@ const EditarCuenta = () => {
     let urlCorreo =
       "http://194.164.169.54:5000/api/tellix/usuarios/mail/" + correo;
     let correoUsuCheck = await axios.get(urlCorreo);
-
     if (pass1 !== pass2) {
-      setMensaje("La contraseña debe coincidir");
+      setMensaje("Las contraseñas deben coincidir");
     } else {
       if (correo === "") {
         setMensaje("Debe introducir el correo");
@@ -67,9 +67,9 @@ const EditarCuenta = () => {
               usuario.data.nombre = nombre;
               usuario.data.correo = correo;
               usuario.data.contraseña = pass1;
-              console.log(usuario.data);
               let url =
                 "http://194.164.169.54:5000/api/tellix/usuarios/" + idUsuario;
+
               let response = await axios.put(url, usuario.data);
               setMensaje("¡Datos modificados con exito!");
               navigate("/principal");

@@ -123,11 +123,10 @@
   }
 }
 
-@media (max-width: 768px){
-  .titulo{
+@media (max-width: 768px) {
+  .titulo {
     margin-left: 4px;
     margin-right: 4px;
     font-size: 1.5rem;
   }
 }
-

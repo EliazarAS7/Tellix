@@ -49,7 +49,9 @@
   height: 2rem;
   width: 14rem;
 }
-
+.formulario h3 {
+  color: red;
+}
 .button {
   background-color: red;
   color: white;
@@ -67,25 +69,24 @@
 }
 
 @media (max-width: 1300px) {
-  
 }
 
 @media (max-width: 768px) {
-  .formulario{
+  .formulario {
     margin-left: 4%;
     margin-right: 4%;
   }
 
-  .formulario form{
+  .formulario form {
     padding-bottom: 6%;
   }
 
-  .botones{
+  .botones {
     display: flex;
     flex-direction: column;
   }
 
-  .titulo{
+  .titulo {
     font-size: 1.5rem;
     margin-left: 4%;
     margin-right: 4%;
@@ -93,5 +94,4 @@
 }
 
 @media (max-width: 400px) {
-  
 }
