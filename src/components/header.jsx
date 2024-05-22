@@ -22,7 +22,7 @@ console.log(generos);
 const Header = () => {
   // para las categorias
   const [categoriasAbiertas, setCategoriasAbiertas] = useState(false);
-
+  const [linkT, setLinkT] = useState("/");
   const [menuOpen, setMenuOpen] = useState(false);
   const menuOptions = [
     "Administrar Perfil",
@@ -61,8 +61,11 @@ const Header = () => {
         .split("; ")
         .find((row) => row.startsWith("session="));
       if (sessionCookie) {
+        setLinkT("/principal");
         setShowRightDiv(true);
         checkProfile(); // Muestra el div derecho si la cookie existe
+      } else {
+        setLinkT("/");
       }
     };
 
@@ -95,7 +98,7 @@ const Header = () => {
   return (
     <div className={principal.todo}>
       <div className={principal.header}>
-        <Link to={"/principal"} className={principal.tellixBtn}>
+        <Link to={linkT} className={principal.tellixBtn}>
           <h1>Tellix</h1>
         </Link>
         {showRightDiv ? (
