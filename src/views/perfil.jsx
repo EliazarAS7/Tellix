@@ -91,31 +91,31 @@ const Perfil = () => {
             <p>Añadir Perfil</p>
           </Link>
         )}
-        {showPopup && (
-          <div className={perfil.fondo}>
-            <div className={perfil.popup}>
-              <input
-                type="text"
-                value={nuevoNombrePerfil}
-                className={perfil.inputName}
-                onChange={(e) => setNuevoNombrePerfil(e.target.value)}
-                placeholder="Nombre del perfil"
-              />
-              <section className={perfil.divBtn}>
-                <button onClick={handleCrearPerfil} className={perfil.button}>
-                  Crear
-                </button>
-                <button
-                  onClick={handleAddPerfilClick2}
-                  className={perfil.button1}
-                >
-                  Cancelar
-                </button>
-              </section>
-            </div>
-          </div>
-        )}
       </div>
+      {showPopup && (
+        <div className={perfil.fondo}>
+          <div className={perfil.popup}>
+            <input
+              type="text"
+              value={nuevoNombrePerfil}
+              className={perfil.inputName}
+              onChange={(e) => setNuevoNombrePerfil(e.target.value)}
+              placeholder="Nombre del perfil"
+            />
+            <section className={perfil.divBtn}>
+              <button onClick={handleCrearPerfil} className={perfil.button}>
+                Crear
+              </button>
+              <button
+                onClick={handleAddPerfilClick2}
+                className={perfil.button1}
+              >
+                Cancelar
+              </button>
+            </section>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

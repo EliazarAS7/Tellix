@@ -36,6 +36,7 @@ const AdministrarPerfil = () => {
   const handleImageSelect = (image) => {
     setSelectedImage(image.src);
     setImagen(image.value);
+    console.log(imagen);
     handleClosePopup();
   };
 
@@ -58,10 +59,19 @@ const AdministrarPerfil = () => {
     let perfil = await axios.get(url);
     console.log(perfil);
     perfil.data.nombre = nombre;
-    perfil.data.imagen = imagen;
+    if (imagen.includes("./img/fotoPerfil/")) {
+      let nuevaImg = imagen
+        .replace("./img/fotoPerfil/", "")
+        .replace(".png", "");
+      setImagen(nuevaImg);
+      perfil.data.imagen = nuevaImg;
+    } else {
+      perfil.data.imagen = imagen;
+    }
     let urlPut =
       "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
     let responsePut = await axios.put(urlPut, perfil.data);
+    console.log(perfil.data);
     navigate("/principal");
   };
 
@@ -77,12 +87,17 @@ const AdministrarPerfil = () => {
         "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
       let response = await axios.get(urlPerfil);
       setNombre(response.data.nombre);
-      if (response.data.imagen === "") {
+      if (response.data.imagen === "" || response.data.imagen === null) {
         setImagen("./img/fotoPerfil/foto0.png");
         setSelectedImage("./img/fotoPerfil/foto0.png");
       } else {
-        setImagen("./img/fotoPerfil/" + response.data.imagen + ".png");
-        setSelectedImage("./img/fotoPerfil/" + response.data.imagen + ".png");
+        if (response.data.imagen.includes("./img/fotoPerfil/")) {
+          setImagen(response.data.imagen);
+          setSelectedImage(response.data.imagen);
+        } else {
+          setImagen("./img/fotoPerfil/" + response.data.imagen + ".png");
+          setSelectedImage("./img/fotoPerfil/" + response.data.imagen + ".png");
+        }
       }
     };
 

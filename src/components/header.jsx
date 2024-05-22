@@ -47,7 +47,11 @@ const Header = () => {
     if (response.data.imagen === "") {
       setFotoPerfil("./img/fotoPerfil/foto0.png");
     } else {
-      setFotoPerfil("./img/fotoPerfil/" + response.data.imagen + ".png");
+      if (response.data.imagen.includes("./img/fotoPerfil/")) {
+        setFotoPerfil(response.data.imagen);
+      } else {
+        setFotoPerfil("./img/fotoPerfil/" + response.data.imagen + ".png");
+      }
     }
   };
 

@@ -60,7 +60,6 @@ const Login = () => {
           "&password=" +
           usuario.pass;
         const response = await axios.get(url);
-        console.log(response);
         if (response.data.correo) {
           let strObj = JSON.stringify(response.data);
           document.cookie = `session=${response.data.id}; path=/; max-age=86400`;
@@ -104,8 +103,8 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
-      alert("Error al iniciar sesión");
     }
+    botonSus = true;
   };
   return (
     <div>
