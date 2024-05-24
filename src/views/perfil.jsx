@@ -5,6 +5,8 @@ import axios from "axios";
 //importamos los css
 import perfil from "../css/perfil.module.css";
 
+const baseURL="localhost:5000/";
+
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
   const partes = valor.split(`; ${nombre}=`);

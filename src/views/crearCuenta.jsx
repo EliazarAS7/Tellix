@@ -9,8 +9,12 @@ import crearCuenta from "../css/crearCuenta.module.css";
 
 // importamos los hooks de navegacion
 import { useGoPerfilC } from "../hooks/NavigationFunctions";
+const baseURL="localhost:5000/";
 
 const CrearCuenta = () => {
+  const regMail = /^\w+@[a-zA-Z]+\.(com|es|org)$/;
+  const regName = /^[a-zA-Z-' ]+$/;
+
   const [view, setView] = useState({
     img1: "./icons/bloq.svg",
     img2: "./icons/bloq.svg",
@@ -98,7 +102,15 @@ const CrearCuenta = () => {
       });
     }
   };
-
+  const validate = (reg, val) => {
+    return new Promise((resolve) => {
+      if (reg.test(val)) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    });
+  };
   const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
@@ -106,8 +118,12 @@ const CrearCuenta = () => {
     event.preventDefault();
     if (usuario.mail === "") {
       setErrorMsg("Debe introducir el email");
+    } else if(!regMail.test(usuario.mail)){
+      setErrorMsg("El email no tiene un formato correcto");
     } else if (usuario.nombre === "") {
       setErrorMsg("Debe introducir el nombre");
+    } else if(!regName.test(usuario.nombre)) {
+      setErrorMsg("El nombre introducido no tiene un formato correcto");
     } else if (usuario.pass === "") {
       setErrorMsg("Debe introducir la contraseña");
     } else if (usuario.pass === usuario.pass2) {

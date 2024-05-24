@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import editarCuenta from "../css/editarCuenta.module.css";
 
+const baseURL="localhost:5000/";
+
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
   const partes = valor.split(`; ${nombre}=`);

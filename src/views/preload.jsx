@@ -9,6 +9,8 @@ import { useGoLogin, useGoCrearCuenta } from "../hooks/NavigationFunctions";
 // importamos el header
 import Header from "../components/header";
 
+const baseURL="localhost:5000/";
+
 //imagenes de las peliculas
 
 import avatar from "../img/fotoPeliculas/Avatar.jpg";
