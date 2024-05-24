@@ -29,7 +29,7 @@ const Perfil = () => {
     setShowPopup(false);
   };
   const handleCrearPerfil = async () => {
-    let url = "http://194.164.169.54:5000/api/tellix/perfiles/";
+    let url = "https://" + baseURL + "api/tellix/perfiles/";
     let response = await axios.post(url, {
       nombre: nuevoNombrePerfil,
       imagen: "foto0",
@@ -40,7 +40,7 @@ const Perfil = () => {
   };
   const handleAddPerfil = async (usuID, perfilID) => {
     let url =
-      "http://194.164.169.54:5000/api/tellix/usuarios/addPerfil?usuID=" +
+      "https://" + baseURL + "api/tellix/usuarios/addPerfil?usuID=" +
       usuID +
       "&perfilID=" +
       perfilID;
@@ -53,7 +53,7 @@ const Perfil = () => {
     const showProfiles = async () => {
       let idUsuario = getCookie("session");
       let url =
-        "http://194.164.169.54:5000/api/tellix/perfiles/profiles?usuID=" +
+        "https://" + baseURL + "api/tellix/perfiles/profiles?usuID=" +
         idUsuario;
       let response = await axios.get(url);
       setPerfiles(response.data);

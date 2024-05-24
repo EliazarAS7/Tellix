@@ -6,6 +6,7 @@ import { useGoLogin, useGoCrearCuenta } from "../hooks/NavigationFunctions";
 // import fotoPerfil from "../img/fotoPerfil/foto2.png";
 
 import principal from "./header.module.css";
+const baseURL="localhost:5000/";
 
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
@@ -14,7 +15,7 @@ function getCookie(nombre) {
 }
 
 // Para coger los generos de las peliculas
-let urlGenero = "http://194.164.169.54:5000/api/tellix/categorias/";
+let urlGenero = "https://" + baseURL + "api/tellix/categorias/";
 let responseGenero = await axios.get(urlGenero);
 const generos = responseGenero.data;
 console.log(generos);
@@ -42,7 +43,7 @@ const Header = () => {
 
   const checkProfile = async () => {
     const urlPerfil =
-      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+      "httpsss://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let response = await axios.get(urlPerfil);
     if (response.data.imagen === "") {
       setFotoPerfil("./img/fotoPerfil/foto0.png");

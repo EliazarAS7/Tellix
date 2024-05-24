@@ -13,7 +13,7 @@ import Header from "../components/header";
 
 const baseURL="localhost:5000/";
 // Para que sea la API quien da peliculas y series
-let url = "http://194.164.169.54:5000/api/tellix/peliculas/";
+let url = "https://" + baseURL + "api/tellix/peliculas/";
 let response = await axios.get(url);
 const movies = response.data;
 const movies3 = [];
@@ -34,7 +34,7 @@ for (let i = 0; i < movies.length; i++) {
   }
 }
 
-let url2 = "http://194.164.169.54:5000/api/tellix/series/";
+let url2 = "https://" + baseURL + "api/tellix/series/";
 let response2 = await axios.get(url2);
 const series = response2.data;
 const series2 = [];
@@ -135,7 +135,7 @@ const Principal = () => {
     setContent(con);
   };
   const obtenerCapitulos = async () => {
-    let urlCap = "http://194.164.169.54:5000/api/tellix/capitulos/";
+    let urlCap = "https://" + baseURL + "api/tellix/capitulos/";
     const responseCap = await axios.get(urlCap);
     const cont = [];
     for (let i = 0; i < responseCap.data.length; i++) {
@@ -222,7 +222,7 @@ const Principal = () => {
     } else {
       obtenerCapitulos();
       localStorage.setItem("imagen", content.imagen);
-      const urlTemp = "http://194.164.169.54:5000/api/tellix/temporadas/";
+      const urlTemp = "https://" + baseURL + "api/tellix/temporadas/";
       const responseTemp = await axios.get(urlTemp);
       const cont = [];
       const serie = localStorage.getItem("series");
@@ -280,7 +280,7 @@ const Principal = () => {
   const changeFilm = async () => {
     let idPerfil = getCookie("perfil");
     let url =
-      "http://194.164.169.54:5000/api/tellix/perfiles/watchList/change/film?perfilID=" +
+      "https://" + baseURL + "api/tellix/perfiles/watchList/change/film?perfilID=" +
       idPerfil +
       "&peliculaID=" +
       selectedContent.id;
@@ -296,7 +296,7 @@ const Principal = () => {
   const changeSerie = async () => {
     let idPerfil = getCookie("perfil");
     let url =
-      "http://194.164.169.54:5000/api/tellix/perfiles/watchList/change/serie?perfilID=" +
+      "https://" + baseURL + "api/tellix/perfiles/watchList/change/serie?perfilID=" +
       idPerfil +
       "&serieID=" +
       selectedContent.id;
@@ -312,10 +312,10 @@ const Principal = () => {
   useEffect(() => {
     const addContent = async () => {
       const baseUrl =
-        "http://194.164.169.54:5000/api/tellix/perfiles/watchList/series?perfilID=" +
+        "https://" + baseURL + "api/tellix/perfiles/watchList/series?perfilID=" +
         getCookie("perfil");
       const baseUrl2 =
-        "http://194.164.169.54:5000/api/tellix/perfiles/watchList/films?perfilID=" +
+        "https://" + baseURL + "api/tellix/perfiles/watchList/films?perfilID=" +
         getCookie("perfil");
       let response = await axios.get(baseUrl);
       let response2 = await axios.get(baseUrl2);

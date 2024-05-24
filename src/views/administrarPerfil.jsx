@@ -48,7 +48,7 @@ const AdministrarPerfil = () => {
   const deleteProfile = async (e) => {
     e.preventDefault();
     const urlDel =
-      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+      "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let responseDel = await axios.delete(urlDel);
     navigate("/perfil");
   };
@@ -56,7 +56,7 @@ const AdministrarPerfil = () => {
   const saveProfile = async (e) => {
     e.preventDefault();
     let url =
-      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+      "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let perfil = await axios.get(url);
     console.log(perfil);
     perfil.data.nombre = nombre;
@@ -70,7 +70,7 @@ const AdministrarPerfil = () => {
       perfil.data.imagen = imagen;
     }
     let urlPut =
-      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+      "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let responsePut = await axios.put(urlPut, perfil.data);
     console.log(perfil.data);
     navigate("/principal");
@@ -85,7 +85,7 @@ const AdministrarPerfil = () => {
   useEffect(() => {
     const showProfiles = async () => {
       const urlPerfil =
-        "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+        "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
       let response = await axios.get(urlPerfil);
       setNombre(response.data.nombre);
       if (response.data.imagen === "" || response.data.imagen === null) {

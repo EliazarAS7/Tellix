@@ -128,7 +128,7 @@ const CrearCuenta = () => {
       setErrorMsg("Debe introducir la contraseña");
     } else if (usuario.pass === usuario.pass2) {
       try {
-        let url = "http://194.164.169.54:5000/api/tellix/usuarios/";
+        let url = "https://" + baseURL + "api/tellix/usuarios/";
         const datos = {
           nombre: usuario.nombre,
           correo: usuario.mail,
