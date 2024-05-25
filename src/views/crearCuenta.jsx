@@ -9,7 +9,7 @@ import crearCuenta from "../css/crearCuenta.module.css";
 
 // importamos los hooks de navegacion
 import { useGoPerfilC } from "../hooks/NavigationFunctions";
-const baseURL="localhost:5000/";
+const baseURL="194.164.169.54:5000/";
 
 const CrearCuenta = () => {
   const regMail = /^\w+@[a-zA-Z]+\.(com|es|org)$/;

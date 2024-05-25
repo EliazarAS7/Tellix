@@ -11,7 +11,7 @@ import principal from "../css/principal.module.css";
 
 import Header from "../components/header";
 
-const baseURL="localhost:5000/";
+const baseURL="194.164.169.54:5000/";
 // Para que sea la API quien da peliculas y series
 let url = "https://" + baseURL + "api/tellix/peliculas/";
 let response = await axios.get(url);

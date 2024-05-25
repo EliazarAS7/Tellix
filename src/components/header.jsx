@@ -6,7 +6,7 @@ import { useGoLogin, useGoCrearCuenta } from "../hooks/NavigationFunctions";
 // import fotoPerfil from "../img/fotoPerfil/foto2.png";
 
 import principal from "./header.module.css";
-const baseURL="localhost:5000/";
+const baseURL="194.164.169.54:5000/";
 
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
@@ -43,7 +43,7 @@ const Header = () => {
 
   const checkProfile = async () => {
     const urlPerfil =
-      "httpsss://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
+      "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let response = await axios.get(urlPerfil);
     if (response.data.imagen === "") {
       setFotoPerfil("./img/fotoPerfil/foto0.png");
