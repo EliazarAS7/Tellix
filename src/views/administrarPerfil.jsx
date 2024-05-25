@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import administrarPerfil from "../css/administrarPerfil.module.css";
 const baseURL="localhost:5000/";
-
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
   const partes = valor.split(`; ${nombre}=`);
@@ -48,7 +47,7 @@ const AdministrarPerfil = () => {
   const deleteProfile = async (e) => {
     e.preventDefault();
     const urlDel =
-      "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
+      baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let responseDel = await axios.delete(urlDel);
     navigate("/perfil");
   };
@@ -56,7 +55,7 @@ const AdministrarPerfil = () => {
   const saveProfile = async (e) => {
     e.preventDefault();
     let url =
-      "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
+      baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let perfil = await axios.get(url);
     console.log(perfil);
     perfil.data.nombre = nombre;
@@ -70,7 +69,7 @@ const AdministrarPerfil = () => {
       perfil.data.imagen = imagen;
     }
     let urlPut =
-      "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
+      baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let responsePut = await axios.put(urlPut, perfil.data);
     console.log(perfil.data);
     navigate("/principal");
@@ -85,7 +84,7 @@ const AdministrarPerfil = () => {
   useEffect(() => {
     const showProfiles = async () => {
       const urlPerfil =
-        "https://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
+        baeURL + "api/tellix/perfiles/" + getCookie("perfil");
       let response = await axios.get(urlPerfil);
       setNombre(response.data.nombre);
       if (response.data.imagen === "" || response.data.imagen === null) {

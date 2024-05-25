@@ -57,7 +57,7 @@ const Login = () => {
         setErrorMsg("Debe introducir la contraseña");
       } else {
         let url =
-          "https://" + baseURL + "api/tellix/usuarios/login?mail=" +
+           baseURL + "api/tellix/usuarios/login?mail=" +
           usuario.mail +
           "&password=" +
           usuario.pass;
@@ -74,7 +74,7 @@ const Login = () => {
           ) {
             botonSus = false;
             let urlUsuId =
-              "https://" + baseURL + "api/tellix/usuarios/mail/" +
+               baseURL + "api/tellix/usuarios/mail/" +
               usuario.mail;
             const respID = await axios.get(urlUsuId);
             let idUsu = respID.data.id;
@@ -85,7 +85,7 @@ const Login = () => {
               event.preventDefault();
               try {
                 let url =
-                  "https://" + baseURL + "api/tellix/usuarios/suscription/" +
+                   baseURL + "api/tellix/usuarios/suscription/" +
                   idUsu;
                 const responseSus = await axios.post(url);
                 if (responseSus) {
