@@ -15,7 +15,7 @@ function getCookie(nombre) {
 }
 
 // Para coger los generos de las peliculas
-let urlGenero = "https://" + baseURL + "api/tellix/categorias/";
+let urlGenero = baseURL + "api/tellix/categorias/";
 let responseGenero = await axios.get(urlGenero);
 const generos = responseGenero.data;
 console.log(generos);
@@ -43,7 +43,7 @@ const Header = () => {
 
   const checkProfile = async () => {
     const urlPerfil =
-      "httpsss://" + baseURL + "api/tellix/perfiles/" + getCookie("perfil");
+      baseURL + "api/tellix/perfiles/" + getCookie("perfil");
     let response = await axios.get(urlPerfil);
     if (response.data.imagen === "") {
       setFotoPerfil("./img/fotoPerfil/foto0.png");
