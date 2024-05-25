@@ -7,7 +7,7 @@ import axios from "axios";
 //importamos los css
 import login from "../css/login.module.css";
 
-const baseURL="localhost:5000/";
+const baseURL="http://localhost:5000/";
 
 let botonSus = true;
 

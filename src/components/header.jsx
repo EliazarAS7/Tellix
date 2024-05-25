@@ -6,7 +6,7 @@ import { useGoLogin, useGoCrearCuenta } from "../hooks/NavigationFunctions";
 // import fotoPerfil from "../img/fotoPerfil/foto2.png";
 
 import principal from "./header.module.css";
-const baseURL="localhost:5000/";
+const baseURL="http://localhost:5000/";
 
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;

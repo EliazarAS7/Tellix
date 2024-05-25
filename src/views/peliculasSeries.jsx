@@ -6,7 +6,7 @@ import style from "../css/peliculasSeries.module.css";
 
 import Header from "../components/header";
 
-const baseURL="localhost:5000/";
+const baseURL="http://localhost:5000/";
 
 const PeliculasSeries = () => {
   const [showFilm, setShowFilm] = useState(false);
