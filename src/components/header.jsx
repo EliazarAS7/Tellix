@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link, redirect } from "react-router-dom";
-import axios from "axios";
-import { useGoLogin, useGoCrearCuenta } from "../hooks/NavigationFunctions";
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link, redirect } from 'react-router-dom';
+import axios from 'axios';
+import { useGoLogin, useGoCrearCuenta } from '../hooks/NavigationFunctions';
 
 // import fotoPerfil from "../img/fotoPerfil/foto2.png";
 
-import principal from "./header.module.css";
+import principal from './header.module.css';
 
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
   const partes = valor.split(`; ${nombre}=`);
-  if (partes.length === 2) return partes.pop().split(";").shift();
+  if (partes.length === 2) return partes.pop().split(';').shift();
 }
 
 // Para coger los generos de las peliculas
-let urlGenero = "http://194.164.169.54:5000/api/tellix/categorias/";
+let urlGenero = 'http://127.0.0.1:5000/api/tellix/categorias/';
 let responseGenero = await axios.get(urlGenero);
 const generos = responseGenero.data;
 console.log(generos);
@@ -22,13 +22,13 @@ console.log(generos);
 const Header = () => {
   // para las categorias
   const [categoriasAbiertas, setCategoriasAbiertas] = useState(false);
-  const [linkT, setLinkT] = useState("/");
+  const [linkT, setLinkT] = useState('/');
   const [menuOpen, setMenuOpen] = useState(false);
   const menuOptions = [
-    "Administrar Perfil",
-    "Cambiar Perfil",
-    "Editar Cuenta",
-    "Cerrar Sesión",
+    'Administrar Perfil',
+    'Cambiar Perfil',
+    'Editar Cuenta',
+    'Cerrar Sesión',
   ];
   const navigate = useNavigate();
 
@@ -38,19 +38,19 @@ const Header = () => {
 
   // leer la cookie
   const [showRightDiv, setShowRightDiv] = useState(false);
-  const [fotoPerfil, setFotoPerfil] = useState("./img/fotoPerfil/foto0.png");
+  const [fotoPerfil, setFotoPerfil] = useState('./img/fotoPerfil/foto0.png');
 
   const checkProfile = async () => {
     const urlPerfil =
-      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+      'http://127.0.0.1:5000/api/tellix/perfiles/' + getCookie('perfil');
     let response = await axios.get(urlPerfil);
-    if (response.data.imagen === "") {
-      setFotoPerfil("./img/fotoPerfil/foto0.png");
+    if (response.data.imagen === '') {
+      setFotoPerfil('./img/fotoPerfil/foto0.png');
     } else {
-      if (response.data.imagen.includes("./img/fotoPerfil/")) {
+      if (response.data.imagen.includes('./img/fotoPerfil/')) {
         setFotoPerfil(response.data.imagen);
       } else {
-        setFotoPerfil("./img/fotoPerfil/" + response.data.imagen + ".png");
+        setFotoPerfil('./img/fotoPerfil/' + response.data.imagen + '.png');
       }
     }
   };
@@ -58,14 +58,14 @@ const Header = () => {
   useEffect(() => {
     const checkSession = () => {
       const sessionCookie = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("session="));
+        .split('; ')
+        .find((row) => row.startsWith('session='));
       if (sessionCookie) {
-        setLinkT("/principal");
+        setLinkT('/principal');
         setShowRightDiv(true);
         checkProfile(); // Muestra el div derecho si la cookie existe
       } else {
-        setLinkT("/");
+        setLinkT('/');
       }
     };
 
@@ -74,24 +74,24 @@ const Header = () => {
 
   const handleMenuOptionClick = (option) => {
     switch (option) {
-      case "Administrar Perfil":
-        navigate("/administrarPerfil");
+      case 'Administrar Perfil':
+        navigate('/administrarPerfil');
         break;
-      case "Cambiar Perfil":
-        navigate("/perfil");
+      case 'Cambiar Perfil':
+        navigate('/perfil');
         break;
-      case "Editar Cuenta":
-        navigate("/editarCuenta");
+      case 'Editar Cuenta':
+        navigate('/editarCuenta');
         break;
-      case "Cerrar Sesión":
+      case 'Cerrar Sesión':
         document.cookie =
-          "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          'session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie =
-          "perfil=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        navigate("/");
+          'perfil=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        navigate('/');
         break;
       default:
-        console.log("Opción no reconocida");
+        console.log('Opción no reconocida');
     }
   };
 
@@ -106,8 +106,8 @@ const Header = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                sessionStorage.setItem("tipo", "pelicula");
-                navigate("/PeliculasSeries");
+                sessionStorage.setItem('tipo', 'pelicula');
+                navigate('/PeliculasSeries');
                 window.location.reload();
               }}
             >
@@ -117,8 +117,8 @@ const Header = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                sessionStorage.setItem("tipo", "serie");
-                navigate("/PeliculasSeries");
+                sessionStorage.setItem('tipo', 'serie');
+                navigate('/PeliculasSeries');
                 window.location.reload();
               }}
             >
@@ -129,8 +129,8 @@ const Header = () => {
               className={principal.miLista}
               onClick={(e) => {
                 e.preventDefault();
-                sessionStorage.setItem("tipo", "lista");
-                navigate("/PeliculasSeries");
+                sessionStorage.setItem('tipo', 'lista');
+                navigate('/PeliculasSeries');
                 window.location.reload();
               }}
             >
@@ -147,9 +147,9 @@ const Header = () => {
                     <Link
                       onClick={(e) => {
                         e.preventDefault();
-                        sessionStorage.setItem("tipo", categoria.id);
-                        sessionStorage.setItem("categoria", categoria.nombre);
-                        navigate("/PeliculasSeries");
+                        sessionStorage.setItem('tipo', categoria.id);
+                        sessionStorage.setItem('categoria', categoria.nombre);
+                        navigate('/PeliculasSeries');
                         window.location.reload();
                       }}
                     >
@@ -172,8 +172,8 @@ const Header = () => {
                   <Link
                     onClick={(e) => {
                       e.preventDefault();
-                      sessionStorage.setItem("tipo", "pelicula");
-                      navigate("/PeliculasSeries");
+                      sessionStorage.setItem('tipo', 'pelicula');
+                      navigate('/PeliculasSeries');
                       window.location.reload();
                     }}
                   >
@@ -182,8 +182,8 @@ const Header = () => {
                   <Link
                     onClick={(e) => {
                       e.preventDefault();
-                      sessionStorage.setItem("tipo", "serie");
-                      navigate("/PeliculasSeries");
+                      sessionStorage.setItem('tipo', 'serie');
+                      navigate('/PeliculasSeries');
                       window.location.reload();
                     }}
                   >
@@ -193,8 +193,8 @@ const Header = () => {
                     className={principal.miLista}
                     onClick={(e) => {
                       e.preventDefault();
-                      sessionStorage.setItem("tipo", "lista");
-                      navigate("/PeliculasSeries");
+                      sessionStorage.setItem('tipo', 'lista');
+                      navigate('/PeliculasSeries');
                       window.location.reload();
                     }}
                   >

@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import editarCuenta from "../css/editarCuenta.module.css";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import editarCuenta from '../css/editarCuenta.module.css';
 
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
   const partes = valor.split(`; ${nombre}=`);
-  if (partes.length === 2) return partes.pop().split(";").shift();
+  if (partes.length === 2) return partes.pop().split(';').shift();
 }
 const EditarCuenta = () => {
   const navigate = useNavigate();
-  const [nombre, setNombre] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [pass1, setPass1] = useState("");
-  const [pass2, setPass2] = useState("");
-  const [mensaje, setMensaje] = useState("");
+  const [nombre, setNombre] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [pass1, setPass1] = useState('');
+  const [pass2, setPass2] = useState('');
+  const [mensaje, setMensaje] = useState('');
 
   const handleChangeNombre = (event) => {
     setNombre(event.target.value); // Actualiza el estado con el nuevo valor
@@ -31,50 +31,49 @@ const EditarCuenta = () => {
 
   const handleChangeSuscription = async (e) => {
     e.preventDefault();
-    let idUsuario = getCookie("session");
+    let idUsuario = getCookie('session');
     let url =
-      "http://194.164.169.54:5000/api/tellix/usuarios/suscription/" + idUsuario;
+      'http://127.0.0.1:5000/api/tellix/usuarios/suscription/' + idUsuario;
     let response = await axios.post(url);
     document.cookie =
-      "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "perfil=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    navigate("/");
+      'session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'perfil=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    navigate('/');
   };
 
   const handleChangeData = async (e) => {
     e.preventDefault();
-    let idUsuario = getCookie("session");
-    let urlUsu = "http://194.164.169.54:5000/api/tellix/usuarios/" + idUsuario;
+    let idUsuario = getCookie('session');
+    let urlUsu = 'http://127.0.0.1:5000/api/tellix/usuarios/' + idUsuario;
     let usuario = await axios.get(urlUsu);
     let correoUsu = usuario.data.correo;
 
-    let urlCorreo =
-      "http://194.164.169.54:5000/api/tellix/usuarios/mail/" + correo;
+    let urlCorreo = 'http://127.0.0.1:5000/api/tellix/usuarios/mail/' + correo;
     let correoUsuCheck = await axios.get(urlCorreo);
     if (pass1 !== pass2) {
-      setMensaje("Las contraseñas deben coincidir");
+      setMensaje('Las contraseñas deben coincidir');
     } else {
-      if (correo === "") {
-        setMensaje("Debe introducir el correo");
+      if (correo === '') {
+        setMensaje('Debe introducir el correo');
       } else {
-        if (nombre === "") {
-          setMensaje("Debe introducir el nombre");
+        if (nombre === '') {
+          setMensaje('Debe introducir el nombre');
         } else {
-          if (correoUsuCheck.data !== "" && correo !== correoUsu) {
-            setMensaje("El correo introducido ya tiene una cuenta en Tellix");
+          if (correoUsuCheck.data !== '' && correo !== correoUsu) {
+            setMensaje('El correo introducido ya tiene una cuenta en Tellix');
           } else {
-            if (pass1 !== "" && pass2 !== "") {
+            if (pass1 !== '' && pass2 !== '') {
               usuario.data.nombre = nombre;
               usuario.data.correo = correo;
               usuario.data.contraseña = pass1;
               let url =
-                "http://194.164.169.54:5000/api/tellix/usuarios/" + idUsuario;
+                'http://127.0.0.1:5000/api/tellix/usuarios/' + idUsuario;
 
               let response = await axios.put(url, usuario.data);
-              setMensaje("¡Datos modificados con exito!");
-              navigate("/principal");
+              setMensaje('¡Datos modificados con exito!');
+              navigate('/principal');
             } else {
-              setMensaje("Debe repetir la contraseña");
+              setMensaje('Debe repetir la contraseña');
             }
           }
         }
@@ -83,8 +82,8 @@ const EditarCuenta = () => {
   };
   useEffect(() => {
     const showData = async () => {
-      let idUsuario = getCookie("session");
-      let url = "http://194.164.169.54:5000/api/tellix/usuarios/" + idUsuario;
+      let idUsuario = getCookie('session');
+      let url = 'http://127.0.0.1:5000/api/tellix/usuarios/' + idUsuario;
       let response = await axios.get(url);
       setNombre(response.data.nombre);
       setCorreo(response.data.correo);
@@ -94,16 +93,16 @@ const EditarCuenta = () => {
   }, []);
 
   useEffect(() => {
-    const cookieSesion = getCookie("session");
+    const cookieSesion = getCookie('session');
     if (!cookieSesion) {
-      navigate("/login");
+      navigate('/login');
     }
   }, [navigate]);
 
   return (
     <div>
       <div className={editarCuenta.logo}>
-        <Link to={"/principal"}>
+        <Link to={'/principal'}>
           <h1>Tellix</h1>
         </Link>
       </div>

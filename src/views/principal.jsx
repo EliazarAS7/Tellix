@@ -1,17 +1,17 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
-import { json, Navigate, useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import { json, Navigate, useNavigate } from 'react-router-dom';
 // import { Modal, Button } from 'react-bootstrap'
-import Modal from "react-bootstrap/Modal"; // Importa Modal de react-bootstrap
-import Button from "react-bootstrap/Button"; // Importa Button de react-bootstrap
-import axios from "axios";
-import { Link } from "react-router-dom";
+import Modal from 'react-bootstrap/Modal'; // Importa Modal de react-bootstrap
+import Button from 'react-bootstrap/Button'; // Importa Button de react-bootstrap
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 //importamos los css
-import principal from "../css/principal.module.css";
+import principal from '../css/principal.module.css';
 
-import Header from "../components/header";
+import Header from '../components/header';
 // Para que sea la API quien da peliculas y series
-let url = "http://194.164.169.54:5000/api/tellix/peliculas/";
+let url = 'http://127.0.0.1:5000/api/tellix/peliculas/';
 let response = await axios.get(url);
 const movies = response.data;
 const movies3 = [];
@@ -32,7 +32,7 @@ for (let i = 0; i < movies.length; i++) {
   }
 }
 
-let url2 = "http://194.164.169.54:5000/api/tellix/series/";
+let url2 = 'http://127.0.0.1:5000/api/tellix/series/';
 let response2 = await axios.get(url2);
 const series = response2.data;
 const series2 = [];
@@ -68,7 +68,7 @@ for (let i = contenido2.length - 1; i > 0; i--) {
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
   const partes = valor.split(`; ${nombre}=`);
-  if (partes.length === 2) return partes.pop().split(";").shift();
+  if (partes.length === 2) return partes.pop().split(';').shift();
 }
 
 const Principal = () => {
@@ -78,11 +78,11 @@ const Principal = () => {
   const [selectedContent, setSelectedContent] = useState(null);
   const [selectedContentView, setSelectedContentView] = useState(null);
   const [currentIndices, setCurrentIndices] = useState(Array(8).fill(0)); // Array de estados para cada carrusel
-  const [selectedOption, setSelectedOption] = useState("");
-  const [temporadas, setTemporadas] = useState("");
-  const [capitulos, setCapitulos] = useState("");
-  const [btn, setBtn] = useState("add");
-  const [nombre, setNombre] = useState("");
+  const [selectedOption, setSelectedOption] = useState('');
+  const [temporadas, setTemporadas] = useState('');
+  const [capitulos, setCapitulos] = useState('');
+  const [btn, setBtn] = useState('add');
+  const [nombre, setNombre] = useState('');
   const [search, setSearch] = useState(false);
   const [searchContent, setSearchContent] = useState(false);
   const [carrousel, setCarrousel] = useState(true);
@@ -95,7 +95,7 @@ const Principal = () => {
       setSearch(false);
       setSearchContent(false);
       setCarrousel(true);
-      setNombre("");
+      setNombre('');
     } else {
       setSearch(true);
     }
@@ -133,12 +133,12 @@ const Principal = () => {
     setContent(con);
   };
   const obtenerCapitulos = async () => {
-    let urlCap = "http://194.164.169.54:5000/api/tellix/capitulos/";
+    let urlCap = 'http://127.0.0.1:5000/api/tellix/capitulos/';
     const responseCap = await axios.get(urlCap);
     const cont = [];
     for (let i = 0; i < responseCap.data.length; i++) {
       if (
-        responseCap.data[i].temporada.id == sessionStorage.getItem("idTemp")
+        responseCap.data[i].temporada.id == sessionStorage.getItem('idTemp')
       ) {
         cont.push(responseCap.data[i]);
       }
@@ -175,7 +175,7 @@ const Principal = () => {
           >
             {items.map((item) => (
               <div key={item.id} onClick={() => handleImageClick(item)}>
-                <img src={"./img/foto" + item.imagen} alt={item.nombre} />
+                <img src={'./img/foto' + item.imagen} alt={item.nombre} />
               </div>
             ))}
           </div>
@@ -201,7 +201,7 @@ const Principal = () => {
 
   const handleOptionChange = async (event) => {
     setSelectedOption(event.target.value);
-    sessionStorage.setItem("idTemp", event.target.value);
+    sessionStorage.setItem('idTemp', event.target.value);
     obtenerCapitulos();
     setShowSerie(true);
   };
@@ -211,19 +211,19 @@ const Principal = () => {
     setSelectedContent(content);
     if (content.duracion) {
       setShowFilm(true);
-      const pelis = localStorage.getItem("peliculas");
+      const pelis = localStorage.getItem('peliculas');
       if (pelis.includes(content.id)) {
-        setBtn("check");
+        setBtn('check');
       } else {
-        setBtn("add");
+        setBtn('add');
       }
     } else {
       obtenerCapitulos();
-      localStorage.setItem("imagen", content.imagen);
-      const urlTemp = "http://194.164.169.54:5000/api/tellix/temporadas/";
+      localStorage.setItem('imagen', content.imagen);
+      const urlTemp = 'http://127.0.0.1:5000/api/tellix/temporadas/';
       const responseTemp = await axios.get(urlTemp);
       const cont = [];
-      const serie = localStorage.getItem("series");
+      const serie = localStorage.getItem('series');
 
       for (let i = 0; i < responseTemp.data.length; i++) {
         if (responseTemp.data[i].serie.id === content.id) {
@@ -235,12 +235,12 @@ const Principal = () => {
       }
 
       if (serie.includes(content.id)) {
-        setBtn("check");
+        setBtn('check');
       } else {
-        setBtn("add");
+        setBtn('add');
       }
 
-      sessionStorage.setItem("idTemp", cont[0].id);
+      sessionStorage.setItem('idTemp', cont[0].id);
       setTemporadas(cont);
       setShowSerie(true);
       obtenerCapitulos();
@@ -250,11 +250,11 @@ const Principal = () => {
   const handleClose = () => {
     setShowFilm(false);
     setShowSerie(false);
-    sessionStorage.setItem("idTemp", null);
+    sessionStorage.setItem('idTemp', null);
   };
   const handleCloseCont = () => {
     setShowContent(false);
-    if (sessionStorage.getItem("contenido") === "serie") {
+    if (sessionStorage.getItem('contenido') === 'serie') {
       setShowSerie(true);
     } else {
       setShowFilm(true);
@@ -263,9 +263,9 @@ const Principal = () => {
 
   const viewContent = (content) => {
     if (showSerie) {
-      sessionStorage.setItem("contenido", "serie");
+      sessionStorage.setItem('contenido', 'serie');
     } else if (showFilm) {
-      sessionStorage.setItem("contenido", "pelicula");
+      sessionStorage.setItem('contenido', 'pelicula');
     }
     setShowSerie(false);
     setShowFilm(false);
@@ -276,45 +276,45 @@ const Principal = () => {
   useEffect(() => {}, [temporadas]);
 
   const changeFilm = async () => {
-    let idPerfil = getCookie("perfil");
+    let idPerfil = getCookie('perfil');
     let url =
-      "http://194.164.169.54:5000/api/tellix/perfiles/watchList/change/film?perfilID=" +
+      'http://127.0.0.1:5000/api/tellix/perfiles/watchList/change/film?perfilID=' +
       idPerfil +
-      "&peliculaID=" +
+      '&peliculaID=' +
       selectedContent.id;
 
     let response = await axios.post(url);
-    if (btn === "add") {
-      setBtn("check");
+    if (btn === 'add') {
+      setBtn('check');
     } else {
-      setBtn("add");
+      setBtn('add');
     }
   };
 
   const changeSerie = async () => {
-    let idPerfil = getCookie("perfil");
+    let idPerfil = getCookie('perfil');
     let url =
-      "http://194.164.169.54:5000/api/tellix/perfiles/watchList/change/serie?perfilID=" +
+      'http://127.0.0.1:5000/api/tellix/perfiles/watchList/change/serie?perfilID=' +
       idPerfil +
-      "&serieID=" +
+      '&serieID=' +
       selectedContent.id;
 
     let response = await axios.post(url);
-    if (btn === "add") {
-      setBtn("check");
+    if (btn === 'add') {
+      setBtn('check');
     } else {
-      setBtn("add");
+      setBtn('add');
     }
   };
 
   useEffect(() => {
     const addContent = async () => {
       const baseUrl =
-        "http://194.164.169.54:5000/api/tellix/perfiles/watchList/series?perfilID=" +
-        getCookie("perfil");
+        'http://127.0.0.1:5000/api/tellix/perfiles/watchList/series?perfilID=' +
+        getCookie('perfil');
       const baseUrl2 =
-        "http://194.164.169.54:5000/api/tellix/perfiles/watchList/films?perfilID=" +
-        getCookie("perfil");
+        'http://127.0.0.1:5000/api/tellix/perfiles/watchList/films?perfilID=' +
+        getCookie('perfil');
       let response = await axios.get(baseUrl);
       let response2 = await axios.get(baseUrl2);
       const idSeries = [];
@@ -325,8 +325,8 @@ const Principal = () => {
       for (let i = 0; i < response2.data.length; i++) {
         idPeliculas.push(response2.data[i].id);
       }
-      localStorage.setItem("series", idSeries);
-      localStorage.setItem("peliculas", idPeliculas);
+      localStorage.setItem('series', idSeries);
+      localStorage.setItem('peliculas', idPeliculas);
     };
 
     addContent();
@@ -334,9 +334,9 @@ const Principal = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    const cookieSesion = getCookie("session");
+    const cookieSesion = getCookie('session');
     if (!cookieSesion) {
-      navigate("/login");
+      navigate('/login');
     }
   }, [navigate]);
   return (
@@ -358,10 +358,10 @@ const Principal = () => {
         {searchContent && (
           <div className={principal.searchContent}>
             {content.map((cont) => (
-              <div key={""} onClick={() => handleImageClick(cont)}>
+              <div key={''} onClick={() => handleImageClick(cont)}>
                 <img
-                  src={"./img/foto" + cont.imagen}
-                  alt={""}
+                  src={'./img/foto' + cont.imagen}
+                  alt={''}
                   className={principal.searchImg}
                 />
               </div>
@@ -434,7 +434,7 @@ const Principal = () => {
                     className={principal.iframe2}
                   ></img>
                   <img
-                    src={"./img/foto" + selectedContent.imagen}
+                    src={'./img/foto' + selectedContent.imagen}
                     className={principal.iframe}
                   ></img>
                 </button>
@@ -493,7 +493,7 @@ const Principal = () => {
                     >
                       <div className={principal.datosCap}>
                         <img
-                          src={`./img/foto${localStorage.getItem("imagen")}`}
+                          src={`./img/foto${localStorage.getItem('imagen')}`}
                         ></img>
                         <div className={principal.datosCapLetter}>
                           <h2>{cap.nombre}</h2>

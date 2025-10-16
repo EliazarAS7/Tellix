@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import administrarPerfil from "../css/administrarPerfil.module.css";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import administrarPerfil from '../css/administrarPerfil.module.css';
 
 function getCookie(nombre) {
   const valor = `; ${document.cookie}`;
   const partes = valor.split(`; ${nombre}=`);
-  if (partes.length === 2) return partes.pop().split(";").shift();
+  if (partes.length === 2) return partes.pop().split(';').shift();
 }
 const AdministrarPerfil = () => {
   const navigate = useNavigate();
   const imageOptions = [
-    { value: "foto0", label: "Imagen 1", src: "./img/fotoPerfil/foto0.png" },
-    { value: "foto1", label: "Imagen 1", src: "./img/fotoPerfil/foto1.png" },
-    { value: "foto2", label: "Imagen 1", src: "./img/fotoPerfil/foto2.png" },
-    { value: "foto3", label: "Imagen 1", src: "./img/fotoPerfil/foto3.png" },
-    { value: "foto4", label: "Imagen 1", src: "./img/fotoPerfil/foto4.png" },
-    { value: "foto5", label: "Imagen 1", src: "./img/fotoPerfil/foto5.png" },
-    { value: "foto6", label: "Imagen 1", src: "./img/fotoPerfil/foto6.png" },
-    { value: "foto7", label: "Imagen 1", src: "./img/fotoPerfil/foto7.png" },
+    { value: 'foto0', label: 'Imagen 1', src: './img/fotoPerfil/foto0.png' },
+    { value: 'foto1', label: 'Imagen 1', src: './img/fotoPerfil/foto1.png' },
+    { value: 'foto2', label: 'Imagen 1', src: './img/fotoPerfil/foto2.png' },
+    { value: 'foto3', label: 'Imagen 1', src: './img/fotoPerfil/foto3.png' },
+    { value: 'foto4', label: 'Imagen 1', src: './img/fotoPerfil/foto4.png' },
+    { value: 'foto5', label: 'Imagen 1', src: './img/fotoPerfil/foto5.png' },
+    { value: 'foto6', label: 'Imagen 1', src: './img/fotoPerfil/foto6.png' },
+    { value: 'foto7', label: 'Imagen 1', src: './img/fotoPerfil/foto7.png' },
   ];
 
   const handleChange = (event) => {
@@ -41,62 +41,62 @@ const AdministrarPerfil = () => {
   };
 
   const redirect = () => {
-    navigate("/principal");
+    navigate('/principal');
   };
 
   const deleteProfile = async (e) => {
     e.preventDefault();
     const urlDel =
-      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+      'http://127.0.0.1:5000/api/tellix/perfiles/' + getCookie('perfil');
     let responseDel = await axios.delete(urlDel);
-    navigate("/perfil");
+    navigate('/perfil');
   };
 
   const saveProfile = async (e) => {
     e.preventDefault();
     let url =
-      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+      'http://127.0.0.1:5000/api/tellix/perfiles/' + getCookie('perfil');
     let perfil = await axios.get(url);
     console.log(perfil);
     perfil.data.nombre = nombre;
-    if (imagen.includes("./img/fotoPerfil/")) {
+    if (imagen.includes('./img/fotoPerfil/')) {
       let nuevaImg = imagen
-        .replace("./img/fotoPerfil/", "")
-        .replace(".png", "");
+        .replace('./img/fotoPerfil/', '')
+        .replace('.png', '');
       setImagen(nuevaImg);
       perfil.data.imagen = nuevaImg;
     } else {
       perfil.data.imagen = imagen;
     }
     let urlPut =
-      "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+      'http://127.0.0.1:5000/api/tellix/perfiles/' + getCookie('perfil');
     let responsePut = await axios.put(urlPut, perfil.data);
     console.log(perfil.data);
-    navigate("/principal");
+    navigate('/principal');
   };
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [popupOpen, setPopupOpen] = useState(false);
-  const [nombre, setNombre] = useState("");
-  const [imagen, setImagen] = useState("");
+  const [nombre, setNombre] = useState('');
+  const [imagen, setImagen] = useState('');
   const [popupCargando, setPopupCargando] = useState(false);
-  const [mensaje, setMensaje] = useState("");
+  const [mensaje, setMensaje] = useState('');
   useEffect(() => {
     const showProfiles = async () => {
       const urlPerfil =
-        "http://194.164.169.54:5000/api/tellix/perfiles/" + getCookie("perfil");
+        'http://127.0.0.1:5000/api/tellix/perfiles/' + getCookie('perfil');
       let response = await axios.get(urlPerfil);
       setNombre(response.data.nombre);
-      if (response.data.imagen === "" || response.data.imagen === null) {
-        setImagen("./img/fotoPerfil/foto0.png");
-        setSelectedImage("./img/fotoPerfil/foto0.png");
+      if (response.data.imagen === '' || response.data.imagen === null) {
+        setImagen('./img/fotoPerfil/foto0.png');
+        setSelectedImage('./img/fotoPerfil/foto0.png');
       } else {
-        if (response.data.imagen.includes("./img/fotoPerfil/")) {
+        if (response.data.imagen.includes('./img/fotoPerfil/')) {
           setImagen(response.data.imagen);
           setSelectedImage(response.data.imagen);
         } else {
-          setImagen("./img/fotoPerfil/" + response.data.imagen + ".png");
-          setSelectedImage("./img/fotoPerfil/" + response.data.imagen + ".png");
+          setImagen('./img/fotoPerfil/' + response.data.imagen + '.png');
+          setSelectedImage('./img/fotoPerfil/' + response.data.imagen + '.png');
         }
       }
     };
@@ -105,16 +105,16 @@ const AdministrarPerfil = () => {
   }, []);
 
   useEffect(() => {
-    const cookieSesion = getCookie("session");
+    const cookieSesion = getCookie('session');
     if (!cookieSesion) {
-      navigate("/login");
+      navigate('/login');
     }
   }, [navigate]);
 
   return (
     <div>
       <div className={administrarPerfil.logo}>
-        <Link to={"/principal"}>
+        <Link to={'/principal'}>
           <h1>Tellix</h1>
         </Link>
       </div>
@@ -126,7 +126,7 @@ const AdministrarPerfil = () => {
             alt=""
             className={administrarPerfil.fotos}
             onClick={handleImageClick}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: 'pointer' }}
           />
           <input
             className={administrarPerfil.input}
@@ -161,14 +161,14 @@ const AdministrarPerfil = () => {
                     src={option.src}
                     alt={`Imagen ${option.value}`}
                     onClick={() => handleImageSelect(option)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: 'pointer' }}
                   />
                 ))}
               </div>
               <button
                 onClick={() => setPopupOpen(false)}
                 className={administrarPerfil.button}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
               >
                 Cancelar
               </button>
